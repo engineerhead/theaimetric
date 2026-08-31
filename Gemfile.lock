@@ -312,6 +312,7 @@ DEPENDENCIES
   jekyll (~> 3.9.0)
   jekyll-feed (~> 0.6)
   jekyll-include-cache
+  jekyll-sitemap
   kramdown-parser-gfm
   tzinfo (~> 1.2)
   tzinfo-data
