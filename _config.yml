@@ -27,6 +27,7 @@ remote_theme: mmistakes/minimal-mistakes@4.28.1
 plugins:
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-sitemap
 defaults:
   # _posts
   - scope:
