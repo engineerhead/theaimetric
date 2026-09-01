@@ -1,6 +1,6 @@
 ---
 title:  "Why AI Applications Shouldn't Depend on One LLM Provider"
-date:   2026-09-01 15:20:51 +0500
+date:   2026-09-01 14:20:51 +0500
 categories: ai
 classes: wide
 ---
