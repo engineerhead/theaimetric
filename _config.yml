@@ -21,6 +21,12 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://theaimetric.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 
+# Collections
+collections:
+  tools:
+    output: true
+    permalink: /tools/:name/
+
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes@4.28.1
@@ -33,6 +39,12 @@ defaults:
   - scope:
       path: ""
       type: posts
+    values:
+      layout: single
+  # _tools collection
+  - scope:
+      path: "_tools"
+      type: tools
     values:
       layout: single
 author:
