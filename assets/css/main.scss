@@ -1,0 +1,455 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough).
+# This file overrides the remote theme's assets/css/main.css:
+# theme variable overrides are applied before the imports (all theme
+# variables are declared with !default), then a modern styling layer.
+---
+
+@charset "utf-8";
+
+/* ==========================================================================
+   Design tokens — override Minimal Mistakes `!default` variables
+   ========================================================================== */
+
+// Canvas & surfaces
+$background-color: #f8f9fb; // off-white page background
+$text-color: #222733; // near-black slate
+$muted-text-color: #5c6470;
+$border-color: #e7e9f2;
+$footer-background-color: #f2f3f8;
+
+// Accent — indigo
+$primary-color: #4f46e5;
+$focus-color: #4f46e5;
+$link-color: #4f46e5;
+$link-color-hover: #4338ca;
+$link-color-visited: #6f65e9;
+$masthead-link-color: #444b57;
+$masthead-link-color-hover: #4f46e5;
+
+// Code & misc
+$code-background-color: #edeff5; // inline code
+$monospace: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+$border-radius: 8px;
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' | append: '.scss' }}"; // skin
+@import "minimal-mistakes"; // theme partials
+
+/* ==========================================================================
+   Modern layer
+   ========================================================================== */
+
+:root {
+  --tm-accent: #4f46e5;
+  --tm-accent-strong: #4338ca;
+  --tm-accent-soft: rgba(79, 70, 229, 0.09);
+  --tm-border: #e7e9f2;
+  --tm-muted: #5c6470;
+  --tm-card: #fff;
+  --tm-radius: 12px;
+  --tm-shadow-hover: 0 2px 4px rgba(16, 24, 40, 0.06), 0 14px 36px rgba(16, 24, 40, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+::selection,
+::-moz-selection {
+  color: inherit;
+  background: rgba(79, 70, 229, 0.16);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--tm-accent);
+  outline-offset: 2px;
+}
+
+/* Masthead: sticky, translucent, blurred */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(248, 249, 251, 0.86);
+  -webkit-backdrop-filter: blur(10px) saturate(1.5);
+  backdrop-filter: blur(10px) saturate(1.5);
+  border-bottom: 1px solid var(--tm-border);
+}
+
+.greedy-nav {
+  background: transparent;
+}
+
+.greedy-nav a {
+  color: var(--tm-muted);
+  font-weight: 500;
+}
+
+.greedy-nav a:hover {
+  color: var(--tm-accent);
+}
+
+.greedy-nav a.site-title {
+  color: #1a1e29;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.greedy-nav a.site-title:hover {
+  color: #1a1e29;
+}
+
+@media (min-width: 80em) {
+  .masthead__inner-wrap { max-width: 1120px; }
+  #main { max-width: 1120px; }
+  .page__footer footer { max-width: 1120px; }
+}
+
+@media (min-width: 64em) {
+  .sidebar__right.sticky { top: 5em; } /* clear the sticky masthead */
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.page__title {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+#page-title:empty {
+  display: none; /* home layout renders an empty h1 */
+}
+
+.archive__subtitle {
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--tm-muted);
+}
+
+/* Archive: the theme reserves 300px for a right sidebar at wide viewports
+   even when no sidebar exists — use the full column instead */
+.archive {
+  float: none;
+  width: 100%;
+  padding-inline-end: 0;
+}
+
+/* Wide pages (classes: wide): same phantom sidebar reserve on `.page` —
+   full column for the tools directory and posts */
+.wide .page {
+  float: none;
+  width: 100%;
+  padding-inline-end: 0;
+}
+
+/* Home archive entries as a card grid */
+.entries-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  margin-block-start: 1.25rem;
+}
+
+.entries-list .list__item {
+  background: var(--tm-card);
+  border: 1px solid var(--tm-border);
+  border-radius: var(--tm-radius);
+  padding: 1.1rem 1.4rem;
+  margin-block-end: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.entries-list .list__item:hover {
+  transform: translateY(-2px);
+  border-color: #d8dcec;
+  box-shadow: var(--tm-shadow-hover);
+}
+
+.list__item .archive__item-title {
+  margin-top: 0; /* theme h2 default adds 2em inside cards */
+}
+
+.list__item .archive__item-title a {
+  text-decoration: none;
+  color: $text-color;
+}
+
+.list__item:hover .archive__item-title a {
+  color: var(--tm-accent);
+}
+
+/* Blockquotes as callouts */
+blockquote {
+  font-style: normal;
+  margin-block: 1.8em;
+  margin-inline-end: 0;
+  padding: 0.8em 1.25em;
+  background: #f4f5fb;
+  border-inline-start: 3px solid var(--tm-accent);
+  border-radius: var(--tm-radius);
+  color: #3a4150;
+}
+
+/* Code blocks: rounder corners on the dark Material theme */
+div.highlighter-rouge,
+figure.highlight {
+  border-radius: var(--tm-radius);
+}
+
+.page__content :not(pre) > code {
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Tables */
+table {
+  border: 1px solid var(--tm-border);
+  border-radius: 10px;
+}
+
+thead {
+  background: #f3f4f9;
+  border-bottom: 1px solid var(--tm-border);
+}
+
+thead th {
+  color: var(--tm-muted);
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+td {
+  border-bottom: 1px solid #eef0f6;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:nth-child(even) {
+  background: #fafbfd;
+}
+
+/* Images */
+.page__content img {
+  border-radius: 10px;
+}
+
+/* Buttons */
+.btn {
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
+}
+
+/* Footer */
+.page__footer {
+  border-top: 1px solid var(--tm-border);
+}
+
+/* ==========================================================================
+   AI Tools directory page (moved from inline styles in tools.html)
+   ========================================================================== */
+
+.ai-tools {
+  margin-top: 1.5rem;
+}
+
+.ai-tools__search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--tm-border);
+  border-radius: 10px;
+  background: var(--tm-card);
+  margin-bottom: 0.9rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ai-tools__search:focus {
+  outline: none;
+  border-color: var(--tm-accent);
+  box-shadow: 0 0 0 3px var(--tm-accent-soft);
+}
+
+.ai-tools__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.6rem;
+}
+
+.ai-tools__chip {
+  border: 1px solid var(--tm-border);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+  line-height: 1.4;
+  cursor: pointer;
+  background: var(--tm-card);
+  color: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.ai-tools__chip:hover {
+  border-color: #c9cfe8;
+}
+
+.ai-tools__chip--active {
+  background: var(--tm-accent);
+  border-color: var(--tm-accent);
+  color: #fff;
+}
+
+.ai-tools__chip-count {
+  opacity: 0.65;
+  font-size: 0.85em;
+  margin-left: 0.2rem;
+}
+
+.ai-tools__status {
+  font-size: 0.85rem;
+  color: var(--tm-muted);
+  margin-bottom: 0.5rem;
+}
+
+.ai-tools__heading {
+  font-size: 1.3rem;
+  margin: 1.8rem 0 0.9rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--tm-border);
+  scroll-margin-top: 4.5rem;
+}
+
+.ai-tools__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--tm-border);
+  border-radius: var(--tm-radius);
+  background: var(--tm-card);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  border-color: #d8dcec;
+  box-shadow: var(--tm-shadow-hover);
+}
+
+.tool-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tool-card__badge {
+  border: 1px solid #d4d8e8;
+  border-radius: 999px;
+  padding: 0.12rem 0.55rem;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--tm-muted);
+}
+
+.tool-card__badge--oss {
+  color: #15803d;
+  border-color: #86dfa9;
+  background: #f0faf3;
+}
+
+.tool-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.tool-card__title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tool-card__title a:hover {
+  color: var(--tm-accent);
+}
+
+.tool-card__desc {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #4b5263;
+  flex-grow: 1;
+}
+
+.tool-card__actions {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.tool-card__visit {
+  color: var(--tm-accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tool-card__details {
+  color: var(--tm-muted);
+  font-size: 0.8rem;
+}
+
+.ai-tools__empty {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.ai-tools__empty p {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+/* hidden-attribute guards (JS toggles hidden, not display) */
+.ai-tools .tool-card[hidden] { display: none; }
+.ai-tools .ai-tools__group[hidden] { display: none; }
+
+@media (max-width: 600px) {
+  .ai-tools__grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .list__item,
+  .tool-card,
+  .ai-tools__chip,
+  .ai-tools__search {
+    transition: none;
+  }
+}
