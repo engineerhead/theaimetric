@@ -1,0 +1,16 @@
+# Capability dimensions shown on comparison pages, in display order.
+# Date the opencode.ai specs/scores/pricing were collected.
+collected: 2026-09-24
+dimensions:
+  - key: reasoning
+    label: Reasoning
+  - key: coding
+    label: Coding
+  - key: cost_efficiency
+    label: Cost efficiency
+  - key: context_window
+    label: Context window
+  - key: multimodal
+    label: Multimodal
+  - key: tool_use
+    label: Tool use

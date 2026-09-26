@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /assets/data/compare.json
+sitemap: false
+---
+{% capture listed_items %}{% for m in site.data.models %}{% assign mk = m[1].key %}{% assign row = site.data.external.models[mk] %}{% assign providers = row.provider_total | default: 0 %}{% if providers > 1 %},{{ m[1].key | jsonify }}{% endif %}{% endfor %}{% endcapture %}
+{
+  "generated": {{ site.data.external.generated | jsonify }},
+  "collected": {{ site.data.compare.collected | jsonify }},
+  "listed_models": [{{ listed_items | remove_first: "," }}],
+  "dimensions": {{ site.data.compare.dimensions | jsonify }},
+  "models": {{ site.data.models | jsonify }},
+  "external": {{ site.data.external | jsonify }},
+  "comparisons": {% capture cmps %}[{% for c in site.comparisons %}{"slug":{{ c.slug | jsonify }},"url":{{ c.url | relative_url | jsonify }},"models":[{{ c.models[0] | jsonify }},{{ c.models[1] | jsonify }}],"title":{{ c.title | jsonify }},"title_short":{{ c.title_short | default: c.title | jsonify }},"description":{{ c.description | jsonify }},"verdict":{{ c.content | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}{{ cmps }}
+}

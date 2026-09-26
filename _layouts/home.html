@@ -1,0 +1,30 @@
+---
+layout: archive
+comment: >
+  Local override of the remote theme's home.html: review posts are excluded
+  from the home page listing. Reviews are identified by the `tool` front-matter
+  field set on every review post; guides and other content posts omit it.
+---
+
+{%- assign locale = page.locale | default: layout.locale | default: site.locale %}
+
+{{ content }}
+
+<h3 class="archive__subtitle">{{ site.data.ui-text[locale].recent_posts | default: "Recent Posts" }}</h3>
+
+{% if paginator %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% comment %} Hide review posts (tool-linked) from the home feed; they remain
+   published and linked from their /tools/ profiles. {% endcomment %}
+{% assign posts = posts | where_exp: "post", "post.tool == nil" %}
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% include documents-collection.html locale=locale entries=posts type=entries_layout %}
+</div>
+
+{% include paginator.html locale=locale %}

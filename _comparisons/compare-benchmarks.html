@@ -1,0 +1,175 @@
+---
+layout: single
+title: Independent benchmarks
+description: "Third-party capability and pricing data for the models tracked in our comparisons — Epoch AI's Capabilities Index and OpenRouter's model list, refreshed automatically."
+classes: wide
+toc: false
+permalink: /compare/benchmarks/
+---
+
+{% assign ext = site.data.external %}
+{% assign eci_rank = ext.eci_ranking %}
+
+<div class="cmp-ext">
+
+  <p>Our <a href="{{ "/compare/" | relative_url }}">model comparisons</a> are built on
+  opencode.ai's capability scores, pricing, and usage data. This page cross-checks the
+  same six models against five independent sources: Epoch AI's Capabilities Index (a
+  capability estimate with confidence intervals), OpenRouter's model list and per-provider
+  endpoint pricing, LiteLLM's community price database, and the DeepInfra, Novita AI, and
+  Venice AI model lists. The snapshot is refreshed automatically every week.</p>
+
+  <p class="cmp-ext__stamp">Snapshot retrieved {{ ext.generated }} by <code>script/fetch-external-data.py</code>.</p>
+
+  <h2 id="eci">Epoch AI Capabilities Index (ECI)</h2>
+
+  <div class="cmp-tablewrap">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Model</th>
+          <th>ECI</th>
+          <th>95% CI</th>
+          <th>As of</th>
+          <th>Organization</th>
+          <th>Access</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for key in eci_rank %}
+          {% assign row = ext.models[key] %}
+          {% assign sci = row.epoch %}
+          {% assign mdl = site.data.models[key] %}
+          <tr class="cmp-ext__row">
+            <td>{{ forloop.index }}</td>
+            <th scope="row"><a href="{{ sci.page }}" target="_blank" rel="noopener">{{ mdl.name }}</a></th>
+            <td>{{ sci.eci | round: 1 }}</td>
+            <td>{{ sci.ci_low | round: 1 }}&ndash;{{ sci.ci_high | round: 1 }}</td>
+            <td>{{ sci.as_of }}</td>
+            <td>{{ sci.organization }}</td>
+            <td>{{ sci.access }}</td>
+          </tr>
+        {% endfor %}
+        {% for m in site.data.models %}
+          {% assign key = m[1].key %}
+          {% assign row = ext.models[key] %}
+          {% if row.epoch == nil %}
+            <tr class="cmp-ext__row">
+              <td>&mdash;</td>
+              <th scope="row">{{ m[1].name }}</th>
+              <td colspan="5" class="cmp-muted">Not yet rated by Epoch AI</td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% if eci_rank.size > 1 %}
+    {% assign k_top = eci_rank[0] %}
+    {% assign k_second = eci_rank[1] %}
+    {% assign top = ext.models[k_top].epoch %}
+    {% assign second = ext.models[k_second].epoch %}
+    {% assign top_name = site.data.models[k_top].name %}
+    {% assign diff = top.eci | minus: second.eci %}
+    <p class="cmp-ext__delta">{{ top_name }} leads by <strong>{{ diff | round: 1 }}</strong> ECI points ({{ top.eci | round: 1 }} vs {{ second.eci | round: 1 }}).</p>
+  {% endif %}
+
+  <h2 id="specs">Model data across sources</h2>
+
+  <div class="cmp-tablewrap">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Source</th>
+          <th>Context</th>
+          <th>Max output</th>
+          <th>Tool calling</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in site.data.models %}
+          {% assign key = m[1].key %}
+          {% assign mdl = m[1] %}
+          {% assign row = ext.models[key] %}
+          {% for s in row.specs %}
+            {% assign sname = ext.sources[s.source].name %}
+            <tr class="cmp-ext__spec-row">
+              <th scope="row">{% if forloop.first %}<a href="{{ mdl.model_url }}" target="_blank" rel="noopener">{{ mdl.name }}</a>{% endif %}</th>
+              <td><a href="{{ s.url }}" target="_blank" rel="noopener">{{ sname }}</a></td>
+              <td>{{ s.context_display | default: "&mdash;" }}</td>
+              <td>{{ s.max_output_display | default: "&mdash;" }}</td>
+              <td>{% if s.tools == nil %}<span class="cmp-muted">&mdash;</span>{% elsif s.tools %}Yes{% else %}No{% endif %}</td>
+            </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="prices">Inference provider prices</h2>
+
+  {% for m in site.data.models %}
+    {% assign key = m[1].key %}
+    {% assign mdl = m[1] %}
+    {% assign row = ext.models[key] %}
+    {% assign prices = row.prices %}
+    <h3 class="cmp-ext__h3">{{ mdl.name }} <span class="cmp-ext__src">{{ prices.size }} of {{ row.provider_total }} providers</span></h3>
+    <div class="cmp-tablewrap">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Provider</th>
+            <th>Tier</th>
+            <th>Input $/1M</th>
+            <th>Output $/1M</th>
+            <th>Cached $/1M</th>
+            <th>Context</th>
+            <th>Sources</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in prices %}
+            <tr class="cmp-ext__price-row">
+              <th scope="row">{% if forloop.first %}<span class="cmp-best-chip">cheapest here</span>{% endif %}{{ p.provider }}</th>
+              <td>{% if p.tier %}{{ p.tier }}{% else %}<span class="cmp-muted">&mdash;</span>{% endif %}</td>
+              <td>${{ p.input | round: 4 }}</td>
+              <td>${{ p.output | round: 4 }}{% if p.discount %}<span class="cmp-ext__disc">*</span>{% endif %}</td>
+              <td>{% if p.cached %}${{ p.cached | round: 4 }}{% else %}<span class="cmp-muted">&mdash;</span>{% endif %}</td>
+              <td>{{ p.context_display | default: "&mdash;" }}</td>
+              <td class="cmp-ext__src">{% for s in p.sources %}{{ ext.sources[s].name }}{% unless forloop.last %} &middot; {% endunless %}{% endfor %}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endfor %}
+
+  <p class="cmp-ext__foot">
+    Prices are charged USD per 1M tokens as reported by each source. * = the
+    source applied a discount off its own list price; list prices live in the snapshot JSON
+    (<code>_data/external.json</code>). &ldquo;Cheapest here&rdquo; compares only the listed hosts &mdash; smaller
+    providers not shown may price lower. <code>Cached</code> is omitted where the source does not publish it.
+  </p>
+
+  <p class="cmp-src">
+    Sources:
+    <a href="{{ ext.sources.epoch.page }}" target="_blank" rel="noopener">{{ ext.sources.epoch.name }}</a>
+    ({{ ext.sources.epoch.dataset }}),
+    <a href="{{ ext.sources.openrouter.page }}" target="_blank" rel="noopener">{{ ext.sources.openrouter.name }}</a>
+    ({{ ext.sources.openrouter.dataset }}),
+    <a href="{{ ext.sources.litellm.page }}" target="_blank" rel="noopener">{{ ext.sources.litellm.name }}</a>
+    ({{ ext.sources.litellm.dataset }}),
+    <a href="{{ ext.sources.deepinfra.page }}" target="_blank" rel="noopener">{{ ext.sources.deepinfra.name }}</a>
+    ({{ ext.sources.deepinfra.dataset }}),
+    <a href="{{ ext.sources.novita.page }}" target="_blank" rel="noopener">{{ ext.sources.novita.name }}</a>
+    ({{ ext.sources.novita.dataset }}), and
+    <a href="{{ ext.sources.venice.page }}" target="_blank" rel="noopener">{{ ext.sources.venice.name }}</a>
+    ({{ ext.sources.venice.dataset }}),
+    retrieved {{ ext.generated }}. These figures are collected independently of the
+    opencode.ai data used on our comparison pages.
+  </p>
+
+</div>

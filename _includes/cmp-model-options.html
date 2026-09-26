@@ -1,0 +1,16 @@
+{%- comment -%}
+  Option list shared by the comparison pickers (hub + comparison pages).
+  A model is offered only when the weekly provider snapshot
+  (_data/external.json) shows more than one provider serving it
+  (provider_total > 1); a model absent from the snapshot is not offered.
+  include.selected = key of the pair member to mark as selected.
+{%- endcomment -%}
+{%- assign cmp_ext = site.data.external -%}
+{%- for cmp_m in site.data.models -%}
+  {%- assign cmp_key = cmp_m[1].key -%}
+  {%- assign cmp_row = cmp_ext.models[cmp_key] -%}
+  {%- assign cmp_providers = cmp_row.provider_total | default: 0 -%}
+  {%- if cmp_providers > 1 %}
+    <option value="{{ cmp_m[1].key }}"{% if cmp_m[1].key == include.selected %} selected{% endif %}>{{ cmp_m[1].name }} — {{ cmp_m[1].vendor }}</option>
+  {%- endif -%}
+{%- endfor -%}

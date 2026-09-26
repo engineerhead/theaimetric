@@ -1,0 +1,290 @@
+---
+layout: single
+---
+
+{% comment %}
+  Comparison page layout, styled after opencode.ai/data/compare.
+  Expects page.models = [key1, key2] resolving into site.data.models.
+  Page body (markdown) renders as the editorial verdict after the data sections.
+{% endcomment %}
+
+{% assign k1 = page.models[0] %}
+{% assign k2 = page.models[1] %}
+{% assign m1 = site.data.models[k1] %}
+{% assign m2 = site.data.models[k2] %}
+{% assign dims = site.data.compare.dimensions %}
+
+<div class="cmp-index__picker" id="cmp-picker">
+  <label class="visually-hidden" for="cmp-a">First model</label>
+  <select id="cmp-a">
+    {% include cmp-model-options.html selected=k1 %}
+  </select>
+  <button type="button" id="cmp-swap" title="Swap models">&#8646;</button>
+  <label class="visually-hidden" for="cmp-b">Second model</label>
+  <select id="cmp-b">
+    {% include cmp-model-options.html selected=k2 %}
+  </select>
+</div>
+<p class="cmp-index__hint" id="cmp-hint" aria-live="polite"></p>
+
+<div class="cmp" data-highlight="on" data-cmp-root data-page-kind="comparison"
+     data-pair-a="{{ k1 }}" data-pair-b="{{ k2 }}" data-page-url="{{ page.url | relative_url }}"
+     data-payload="{{ '/assets/data/compare.json' | relative_url }}">
+
+  <section class="cmp-hero">
+    <div class="cmp-hero__models">
+      <a class="cmp-hero__model cmp-hero__model--m1" href="{{ m1.model_url }}" target="_blank" rel="noopener">
+        <span class="cmp-hero__vendor">{{ m1.vendor }}</span>
+        <span class="cmp-hero__name">{{ m1.name }}</span>
+        <span class="cmp-hero__stats">
+          <span>{{ m1.context_display }} ctx</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>{{ m1.pricing.input.label }} in / {{ m1.pricing.output.label }} out</span>
+        </span>
+      </a>
+      <a class="cmp-hero__model cmp-hero__model--m2" href="{{ m2.model_url }}" target="_blank" rel="noopener">
+        <span class="cmp-hero__vendor">{{ m2.vendor }}</span>
+        <span class="cmp-hero__name">{{ m2.name }}</span>
+        <span class="cmp-hero__stats">
+          <span>{{ m2.context_display }} ctx</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>{{ m2.pricing.input.label }} in / {{ m2.pricing.output.label }} out</span>
+        </span>
+      </a>
+    </div>
+    <button type="button" class="cmp-highlight-toggle" aria-pressed="true">Hide highlights</button>
+  </section>
+
+  <section class="cmp-section" id="radar">
+    <h2 class="cmp-section__title">Capability radar</h2>
+    <p class="cmp-section__note">Shape = OpenCode normalized scores (0&ndash;100); a missing score plots at the center.</p>
+    <div class="cmp-radar">
+      <div class="cmp-radar__legend">
+        <span class="cmp-radar__key">
+          <span class="cmp-radar__swatch cmp-radar__swatch--m1" aria-hidden="true"></span>
+          <span>{{ m1.name }}<em>{{ m1.vendor }}</em></span>
+        </span>
+        <span class="cmp-radar__key">
+          <span class="cmp-radar__swatch cmp-radar__swatch--m2" aria-hidden="true"></span>
+          <span>{{ m2.name }}<em>{{ m2.vendor }}</em></span>
+        </span>
+      </div>
+      <div class="cmp-radar__mount" id="cmp-radar" hidden></div>
+    </div>
+  </section>
+
+  <section class="cmp-section" id="capability-scores">
+    <h2 class="cmp-section__title">Capability scores</h2>
+    <p class="cmp-section__note">Normalized capability scores (0&ndash;100) from {% if m1.data_url %}<a href="{{ m1.data_url }}" target="_blank" rel="noopener">OpenCode data</a>{% else %}OpenCode data{% endif %}; &ldquo;No data&rdquo; mirrors the source.</p>
+
+    <div class="cmp-scores">
+      {% for d in dims %}
+        {% assign dk = d.key %}
+        {% assign s1 = m1.scores[dk] %}
+        {% assign s2 = m2.scores[dk] %}
+        {% assign b1 = false %}{% assign b2 = false %}
+        {% if s1 != nil and s2 != nil %}
+          {% if s1 > s2 %}{% assign b1 = true %}{% elsif s2 > s1 %}{% assign b2 = true %}{% endif %}
+        {% endif %}
+        <div class="cmp-score-row">
+          <div class="cmp-dim">{{ d.label }}</div>
+          <div class="cmp-barcell">
+            {% if s1 == nil %}
+              <span class="cmp-nodata">{{ m1.name }}: no data</span>
+            {% else %}
+              <div class="cmp-bar"><div class="cmp-bar__fill cmp-bar__fill--m1{% if b1 %} is-best{% endif %}" style="width: {{ s1 }}%;"></div></div>
+              <span class="cmp-bar__label">{{ s1 }}<span class="cmp-denom">/100</span></span>
+            {% endif %}
+          </div>
+          <div class="cmp-barcell">
+            {% if s2 == nil %}
+              <span class="cmp-nodata">{{ m2.name }}: no data</span>
+            {% else %}
+              <div class="cmp-bar"><div class="cmp-bar__fill cmp-bar__fill--m2{% if b2 %} is-best{% endif %}" style="width: {{ s2 }}%;"></div></div>
+              <span class="cmp-bar__label">{{ s2 }}<span class="cmp-denom">/100</span></span>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="cmp-section" id="overview">
+    <h2 class="cmp-section__title">Overview</h2>
+    <div class="cmp-tablewrap">
+      <table class="cmp-table">
+        <thead>
+          <tr><th scope="col"><span class="visually-hidden">Attribute</span></th><th scope="col">{{ m1.name }}</th><th scope="col">{{ m2.name }}</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Author</th>
+            <td><a href="{{ m1.model_url }}" target="_blank" rel="noopener">{{ m1.vendor }}</a></td>
+            <td><a href="{{ m2.model_url }}" target="_blank" rel="noopener">{{ m2.vendor }}</a></td></tr>
+          <tr><th scope="row">Context length</th>
+            <td>{{ m1.context_display }}</td>
+            <td>{{ m2.context_display }}</td></tr>
+          <tr><th scope="row">Max output</th>
+            <td>{{ m1.output_display }}</td>
+            <td>{{ m2.output_display }}</td></tr>
+          <tr><th scope="row">Knowledge cutoff</th>
+            <td>{{ m1.knowledge_cutoff }}</td>
+            <td>{{ m2.knowledge_cutoff }}</td></tr>
+          <tr><th scope="row">Released</th>
+            <td>{{ m1.released }}</td>
+            <td>{{ m2.released }}</td></tr>
+          <tr><th scope="row">Reasoning</th>
+            <td>{% if m1.reasoning %}True{% else %}False{% endif %}</td>
+            <td>{% if m2.reasoning %}True{% else %}False{% endif %}</td></tr>
+          <tr><th scope="row">Input modalities</th>
+            <td>{{ m1.inputs | join: ", " }}</td>
+            <td>{{ m2.inputs | join: ", " }}</td></tr>
+          <tr><th scope="row">Output modalities</th>
+            <td>{{ m1.outputs | join: ", " }}</td>
+            <td>{{ m2.outputs | join: ", " }}</td></tr>
+          {% if m1.weights_url or m2.weights_url %}
+          <tr><th scope="row">Model weights</th>
+            <td>{% if m1.weights_url %}<a href="{{ m1.weights_url }}" target="_blank" rel="noopener">Open weights&nbsp;&nearr;</a>{% else %}&mdash;{% endif %}</td>
+            <td>{% if m2.weights_url %}<a href="{{ m2.weights_url }}" target="_blank" rel="noopener">Open weights&nbsp;&nearr;</a>{% else %}&mdash;{% endif %}</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="cmp-section" id="pricing">
+    <h2 class="cmp-section__title">Pricing</h2>
+    <p class="cmp-section__note">USD per 1M tokens; the cheaper side is highlighted.</p>
+    <div class="cmp-tablewrap">
+      <table class="cmp-table">
+        <thead>
+          <tr><th scope="col"><span class="visually-hidden">Token type</span></th><th scope="col">{{ m1.name }}</th><th scope="col">{{ m2.name }}</th></tr>
+        </thead>
+        <tbody>
+          {% assign price_types = "input;output;cached" | split: ";" %}
+          {% for pt in price_types %}
+            {% assign p1 = m1.pricing[pt] %}
+            {% assign p2 = m2.pricing[pt] %}
+            {% if pt == "input" %}{% assign row_label = "Input" %}
+            {% elsif pt == "output" %}{% assign row_label = "Output" %}
+            {% else %}{% assign row_label = "Cached input" %}{% endif %}
+            {% assign u1 = p1.usd %}{% assign u2 = p2.usd %}
+            {% assign w1 = false %}{% assign w2 = false %}
+            {% if u1 and u2 %}
+              {% if u1 < u2 %}{% assign w1 = true %}{% elsif u2 < u1 %}{% assign w2 = true %}{% endif %}
+            {% endif %}
+            <tr><th scope="row">{{ row_label }}</th>
+              <td>{% if w1 %}<span class="cmp-best-chip">Cheaper</span>{% endif %}{{ p1.label }}</td>
+              <td>{% if w2 %}<span class="cmp-best-chip">Cheaper</span>{% endif %}{{ p2.label }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% assign o1 = m1.pricing.output.usd | plus: 0.0 %}
+    {% assign o2 = m2.pricing.output.usd | plus: 0.0 %}
+    {% if m1.pricing.output.usd and m2.pricing.output.usd and o1 != o2 %}
+      {% assign lo = o1 %}{% assign hi = o2 %}{% assign cheap = m1.name %}
+      {% if o2 < o1 %}{% assign lo = o2 %}{% assign hi = o1 %}{% assign cheap = m2.name %}{% endif %}
+      {% assign ratio = hi | divided_by: lo | round: 1 %}
+      {% if ratio > 1.05 %}
+        <p class="cmp-pricing__note">{{ cheap }} costs <strong>{{ ratio }}&times; less</strong> per output token.</p>
+      {% endif %}
+    {% endif %}
+  </section>
+
+  {% assign ext = site.data.external %}
+  {% assign pair_keys = k1 | append: "," | append: k2 | split: "," %}
+  <section class="cmp-section" id="provider-prices">
+    <h2 class="cmp-section__title">Provider prices</h2>
+    <p class="cmp-section__note">Charged USD per 1M tokens from major inference providers, collected
+    independently of the OpenCode list prices above. Snapshot {{ ext.generated }};
+    <a href="{{ "/compare/benchmarks/" | relative_url }}">full provider list</a>.</p>
+    {% for pk in pair_keys %}
+      {% assign row = ext.models[pk] %}
+      {% assign mdl = site.data.models[pk] %}
+      {% assign best = row.prices_best %}
+      {% if best.size > 0 %}
+        <h3 class="cmp-ext__h3">{{ mdl.name }} <span class="cmp-ext__src">{{ best.size }} of {{ row.provider_total }} providers</span></h3>
+        <div class="cmp-tablewrap">
+          <table class="cmp-table">
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Tier</th>
+                <th>Input $/1M</th>
+                <th>Output $/1M</th>
+                <th>Cached $/1M</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in best %}
+                <tr class="cmp-ext__price-row">
+                  <th scope="row">{% if forloop.first %}<span class="cmp-best-chip">cheapest here</span>{% endif %}{{ p.provider }}</th>
+                  <td>{% if p.tier %}{{ p.tier }}{% else %}<span class="cmp-muted">&mdash;</span>{% endif %}</td>
+                  <td>${{ p.input | round: 4 }}</td>
+                  <td>${{ p.output | round: 4 }}{% if p.discount %}<span class="cmp-ext__disc">*</span>{% endif %}</td>
+                  <td>{% if p.cached %}${{ p.cached | round: 4 }}{% else %}<span class="cmp-muted">&mdash;</span>{% endif %}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% endif %}
+    {% endfor %}
+    <p class="cmp-ext__foot">* = source-applied discount off its own list price. Rows list the cheapest
+    tier per provider; &ldquo;cheapest here&rdquo; compares only the listed hosts.</p>
+  </section>
+
+  <section class="cmp-section" id="momentum">
+    <h2 class="cmp-section__title">Momentum <span class="cmp-section__title-note">OpenCode usage, last 2 mo</span></h2>
+    <div class="cmp-tablewrap">
+      <table class="cmp-table">
+        <thead>
+          <tr><th scope="col"><span class="visually-hidden">Metric</span></th><th scope="col">{{ m1.name }}</th><th scope="col">{{ m2.name }}</th></tr>
+        </thead>
+        <tbody>
+          {% if m1.momentum.has_usage or m2.momentum.has_usage %}
+            <tr><th scope="row">Unique users</th><td>{% if m1.momentum.has_usage %}{{ m1.momentum.users }}{% else %}<span class="cmp-muted">No usage</span>{% endif %}</td><td>{% if m2.momentum.has_usage %}{{ m2.momentum.users }}{% else %}<span class="cmp-muted">No usage</span>{% endif %}</td></tr>
+            <tr><th scope="row">Completed sessions</th><td>{% if m1.momentum.has_usage %}{{ m1.momentum.sessions }}{% else %}<span class="cmp-muted">No usage</span>{% endif %}</td><td>{% if m2.momentum.has_usage %}{{ m2.momentum.sessions }}{% else %}<span class="cmp-muted">No usage</span>{% endif %}</td></tr>
+            <tr><th scope="row">Token share</th><td>{% if m1.momentum.has_usage %}{{ m1.momentum.token_share }}{% else %}<span class="cmp-muted">No usage</span>{% endif %}</td><td>{% if m2.momentum.has_usage %}{{ m2.momentum.token_share }}{% else %}<span class="cmp-muted">No usage</span>{% endif %}</td></tr>
+            <tr><th scope="row">Tokens</th><td>{% if m1.momentum.has_usage %}{{ m1.momentum.tokens }} <span class="cmp-trend">{{ m1.momentum.tokens_trend }}</span>{% else %}<span class="cmp-muted">No usage</span>{% endif %}</td><td>{% if m2.momentum.has_usage %}{{ m2.momentum.tokens }} <span class="cmp-trend">{{ m2.momentum.tokens_trend }}</span>{% else %}<span class="cmp-muted">No usage</span>{% endif %}</td></tr>
+            <tr><th scope="row">Week-1 retention</th><td>{% if m1.momentum.has_usage %}{{ m1.momentum.retention }}{% else %}<span class="cmp-muted">No usage</span>{% endif %}</td><td>{% if m2.momentum.has_usage %}{{ m2.momentum.retention }}{% else %}<span class="cmp-muted">No usage</span>{% endif %}</td></tr>
+            {% if m1.momentum.cache_ratio or m2.momentum.cache_ratio %}
+            <tr><th scope="row">Cache ratio</th><td>{{ m1.momentum.cache_ratio | default: "&mdash;" }}</td><td>{{ m2.momentum.cache_ratio | default: "&mdash;" }}</td></tr>
+            {% endif %}
+            {% if m1.momentum.avg_session_cost or m2.momentum.avg_session_cost %}
+            <tr><th scope="row">Avg cost / session</th><td>{{ m1.momentum.avg_session_cost | default: "&mdash;" }}</td><td>{{ m2.momentum.avg_session_cost | default: "&mdash;" }}</td></tr>
+            {% endif %}
+            {% if m1.momentum.avg_session_tokens or m2.momentum.avg_session_tokens %}
+            <tr><th scope="row">Avg tokens / session</th><td>{{ m1.momentum.avg_session_tokens | default: "&mdash;" }}</td><td>{{ m2.momentum.avg_session_tokens | default: "&mdash;" }}</td></tr>
+            {% endif %}
+          {% else %}
+            <tr><td colspan="3" class="cmp-muted">Neither model has OpenCode usage rows yet.</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="cmp-verdict">
+    <h2 class="cmp-section__title" id="verdict">Verdict</h2>
+    {{ content }}
+  </section>
+
+  <section class="cmp-section" id="related">
+    <h2 class="cmp-section__title">Related comparisons</h2>
+    <div class="cmp-related">
+      {% for c in site.comparisons %}
+        {% unless c.slug == page.slug %}
+          {% if c.models contains k1 or c.models contains k2 %}
+            <a class="cmp-related__chip" href="{{ c.url | relative_url }}">{{ c.title_short | default: c.title }}&nbsp;&nearr;</a>
+          {% endif %}
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <p class="cmp-src">Specs, scores, and pricing collected {{ site.data.compare.collected }} from <a href="https://opencode.ai/data" target="_blank" rel="noopener">opencode.ai/data</a>; usage figures cover the trailing two months on that platform. Newer catalog entries are populated from each vendor's published model list. List prices move often &mdash; verify with each provider before committing.</p>
+
+</div>
+
+<script src="{{ '/assets/js/compare-dynamic.js' | relative_url }}" defer></script>

@@ -1,0 +1,1615 @@
+# Model catalog for comparison pages.
+#
+# Source of truth: https://opencode.ai/data/ (usage momentum, capability
+# scores, pricing, specs) collected on 2026-09-24.
+#
+# Field notes:
+#   scores           Normalized 0-100 capability scores from opencode.ai;
+#                    null means "No data" on the source page.
+#   pricing          USD per 1M tokens. `usd: null` means the list price is
+#                    not published on the source page; `label` is what we render.
+#   momentum         OpenCode usage over the trailing 2 months (display strings).
+#   context_tokens   Numeric context window, used for winner calculations.
+#   model_url        The vendor's official page for the model; this is the
+#                    linked model source (hero, author) on comparison pages.
+#                    data_url stays the OpenCode catalog page behind the
+#                    capability-scores note.
+
+gpt-5-6-sol:
+  key: gpt-5-6-sol
+  name: GPT-5.6 Sol
+  vendor: OpenAI
+  data_url: https://opencode.ai/data/openai/gpt-5-6-sol
+  model_url: https://platform.openai.com/docs/models/gpt-5.6-sol
+  tagline: OpenAI's latest flagship, tuned for agentic coding with a 1.1M-token window.
+  context_tokens: 1100000
+  context_display: "1.1M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: Feb 2026
+  released: Jul 2026
+  reasoning: true
+  inputs: [Text, Image, Pdf]
+  outputs: [Text]
+  weights_url:
+  pricing:
+    input: { usd: 4.0, label: "$4.00" }
+    output: { usd: 20.0, label: "$20.00" }
+    cached: { usd: 0.4, label: "$0.40" }
+  scores:
+    reasoning: 84
+    coding: 100
+    cost_efficiency: 10
+    context_window: 98
+    multimodal: 50
+    tool_use: 100
+  momentum:
+    has_usage: true
+    rank: "—"
+    users: "0"
+    sessions: "1"
+    token_share: "0%"
+    tokens: "0"
+    tokens_trend: "0%"
+    retention: "Pending"
+
+glm-5-3:
+  key: glm-5-3
+  name: GLM-5.3
+  vendor: Zhipu
+  data_url: https://opencode.ai/data/zhipuai/glm-5-3
+  model_url: https://docs.z.ai/guides/llm/glm-5.3
+  tagline: Zhipu's frontier model and the #22 ranked model on OpenCode by weekly token volume.
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 131000
+  output_display: "131K"
+  knowledge_cutoff: Unknown
+  released: Aug 2026
+  reasoning: true
+  inputs: [Text]
+  outputs: [Text]
+  weights_url:
+  pricing:
+    input: { usd: 1.4, label: "$1.40" }
+    output: { usd: 4.4, label: "$4.40" }
+    cached: { usd: 0.26, label: "$0.26" }
+  scores:
+    reasoning: 100
+    coding:
+    cost_efficiency: 34
+    context_window: 80
+    multimodal: 0
+    tool_use:
+  momentum:
+    has_usage: true
+    rank: "#22"
+    users: "290K"
+    sessions: "487,232"
+    token_share: "0.18%"
+    tokens: "1.3T"
+    tokens_trend: "+100%"
+    retention: "58.7% (18K user-weeks)"
+    cache_ratio: "93% input tokens"
+    avg_session_cost: "$1.01"
+    avg_session_tokens: "2.7M"
+
+claude-opus-5-5:
+  key: claude-opus-5-5
+  name: Claude Opus 5.5
+  vendor: Anthropic
+  data_url: https://opencode.ai/data/anthropic/claude-opus-5-5
+  model_url: https://www.anthropic.com/claude/claude-opus-5-5
+  tagline: Anthropic's newest Opus tier model, catalogued with 1M context and PDF/image input.
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: Jun 2026
+  released: Sep 2026
+  reasoning: true
+  inputs: [Text, Image, Pdf]
+  outputs: [Text]
+  weights_url:
+  pricing:
+    input: { usd: 4.0, label: "$4.00" }
+    output: { usd: 20.0, label: "$20.00" }
+    cached: { usd: 0.2, label: "$0.20" }
+  scores:
+    reasoning: 100
+    coding:
+    cost_efficiency: 10
+    context_window: 80
+    multimodal: 50
+    tool_use:
+  momentum:
+    has_usage: false
+
+deepseek-v4-1-flash:
+  key: deepseek-v4-1-flash
+  name: DeepSeek V4.1 Flash
+  vendor: DeepSeek
+  data_url: https://opencode.ai/data/deepseek/deepseek-v4-1-flash
+  model_url: https://api-docs.deepseek.com/guides/deepseek_v4_1_flash
+  tagline: The #1 model on OpenCode by weekly token volume, open-weights on Hugging Face.
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 384000
+  output_display: "384K"
+  knowledge_cutoff: May 2025
+  released: Sep 2026
+  reasoning: true
+  inputs: [Text, Image]
+  outputs: [Text]
+  weights_url: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
+  pricing:
+    input: { usd: 0.27, label: "$0.27" }
+    output: { usd: 1.08, label: "$1.08" }
+    cached: { usd: 0.0054, label: "$0.0054" }
+  scores:
+    reasoning: 100
+    coding:
+    cost_efficiency: 63
+    context_window: 80
+    multimodal: 33
+    tool_use:
+  momentum:
+    has_usage: true
+    rank: "#1"
+    users: "761K"
+    sessions: "12,718,071"
+    token_share: "12.6%"
+    tokens: "94T"
+    tokens_trend: "+100%"
+    retention: "85% (23K user-weeks)"
+    cache_ratio: "97% input tokens"
+    avg_session_cost: "$0.09"
+    avg_session_tokens: "7.4M"
+
+qwen3-8-max-preview:
+  key: qwen3-8-max-preview
+  name: Qwen3.8 Max Preview
+  vendor: Qwen (Alibaba)
+  data_url: https://opencode.ai/data/alibaba/qwen3-8-max-preview
+  model_url: https://qwen.ai/models/qwen3-8-max-preview
+  tagline: Alibaba's preview-tier flagship with text, image, and video input.
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 131000
+  output_display: "131K"
+  knowledge_cutoff: Unknown
+  released: Jul 2026
+  reasoning: true
+  inputs: [Text, Image, Video]
+  outputs: [Text]
+  weights_url:
+  pricing:
+    input: { usd: , label: "Not published" }
+    output: { usd: , label: "Not published" }
+    cached: { usd: , label: "Not published" }
+  scores:
+    reasoning: 67
+    coding: 100
+    cost_efficiency: 100
+    context_window: 80
+    multimodal: 50
+    tool_use:
+  momentum:
+    has_usage: true
+    rank: "—"
+    users: "0"
+    sessions: "72"
+    token_share: "0%"
+    tokens: "0"
+    tokens_trend: "0%"
+    retention: "Pending"
+
+north-mini-code-1-0:
+  key: north-mini-code-1-0
+  name: North Mini Code
+  vendor: Cohere
+  data_url: https://opencode.ai/data/cohere/north-mini-code-1-0
+  model_url: https://cohere.com/models/north-mini-code-1-0
+  tagline: Cohere's compact coding model with a 256K window and a Sep 2025 knowledge cutoff.
+  context_tokens: 256000
+  context_display: "256K"
+  output_tokens: 64000
+  output_display: "64K"
+  knowledge_cutoff: Sep 2025
+  released: Jun 2026
+  reasoning: true
+  inputs: [Text]
+  outputs: [Text]
+  weights_url:
+  pricing:
+    input: { usd: , label: "Not published" }
+    output: { usd: , label: "Not published" }
+    cached: { usd: , label: "Unknown" }
+  scores:
+    reasoning: 100
+    coding: 88
+    cost_efficiency: 100
+    context_window: 51
+    multimodal: 0
+    tool_use: 0
+  momentum:
+    has_usage: false
+
+# --- vendor-populated entries below (script/fetch-external-data.py) ---
+# Generated from each vendor's published model list. Scores and usage
+# momentum are OpenCode-only and stay absent until hand-authored.
+
+gpt-6-luna-pro:
+  key: "gpt-6-luna-pro"
+  name: "GPT-6 Luna Pro"
+  vendor: "OpenAI"
+  data_url:
+  model_url: "https://openrouter.ai/openai/gpt-6-luna-pro"
+  tagline: "GPT-6 Luna Pro is the same underlying model as [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  context_tokens: 1050000
+  context_display: "1.05M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.1, "label": "$0.10"}
+    output: {"usd": 0.5, "label": "$0.50"}
+    cached: {"usd": 0.01, "label": "$0.01"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+gpt-6-luna:
+  key: "gpt-6-luna"
+  name: "GPT-6 Luna"
+  vendor: "OpenAI"
+  data_url:
+  model_url: "https://openrouter.ai/openai/gpt-6-luna"
+  tagline: "GPT-6 Luna is the fast, cost-efficient model in OpenAI's GPT-6 series, positioned below GPT-6 Sol."
+  context_tokens: 1050000
+  context_display: "1.05M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.1, "label": "$0.10"}
+    output: {"usd": 0.5, "label": "$0.50"}
+    cached: {"usd": 0.01, "label": "$0.01"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+gpt-6-sol-pro:
+  key: "gpt-6-sol-pro"
+  name: "GPT-6 Sol Pro"
+  vendor: "OpenAI"
+  data_url:
+  model_url: "https://openrouter.ai/openai/gpt-6-sol-pro"
+  tagline: "GPT-6 Sol Pro is the same underlying model as [GPT-6 Sol](https://openrouter.ai/openai/gpt-6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  context_tokens: 1050000
+  context_display: "1.05M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 2.0, "label": "$2.00"}
+    output: {"usd": 10.0, "label": "$10.00"}
+    cached: {"usd": 0.2, "label": "$0.20"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+gpt-6-sol:
+  key: "gpt-6-sol"
+  name: "GPT-6 Sol"
+  vendor: "OpenAI"
+  data_url:
+  model_url: "https://openrouter.ai/openai/gpt-6-sol"
+  tagline: "GPT-6 Sol is the cost-efficient high-end model in OpenAI's GPT-6 series, positioned below the flagship GPT-6 Astra and above the fast GPT-6 Luna tier."
+  context_tokens: 1050000
+  context_display: "1.05M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 2.0, "label": "$2.00"}
+    output: {"usd": 10.0, "label": "$10.00"}
+    cached: {"usd": 0.2, "label": "$0.20"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+gpt-6-astra:
+  key: "gpt-6-astra"
+  name: "GPT-6 Astra"
+  vendor: "OpenAI"
+  data_url:
+  model_url: "https://openrouter.ai/openai/gpt-6-astra"
+  tagline: "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work."
+  context_tokens: 1050000
+  context_display: "1.05M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 10.0, "label": "$10.00"}
+    output: {"usd": 50.0, "label": "$50.00"}
+    cached: {"usd": 1.0, "label": "$1.00"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+gpt-6-astra-pro:
+  key: "gpt-6-astra-pro"
+  name: "GPT-6 Astra Pro"
+  vendor: "OpenAI"
+  data_url:
+  model_url: "https://openrouter.ai/openai/gpt-6-astra-pro"
+  tagline: "GPT-6 Astra Pro is the same underlying model as [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  context_tokens: 1050000
+  context_display: "1.05M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 10.0, "label": "$10.00"}
+    output: {"usd": 50.0, "label": "$50.00"}
+    cached: {"usd": 1.0, "label": "$1.00"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+gpt-5-6-luna-pro:
+  key: "gpt-5-6-luna-pro"
+  name: "GPT-5.6 Luna Pro"
+  vendor: "OpenAI"
+  data_url:
+  model_url: "https://openrouter.ai/openai/gpt-5.6-luna-pro"
+  tagline: "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  context_tokens: 1050000
+  context_display: "1.05M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Jul 2026"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.2, "label": "$0.20"}
+    output: {"usd": 1.2, "label": "$1.20"}
+    cached: {"usd": 0.02, "label": "$0.02"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+gpt-5-6-luna:
+  key: "gpt-5-6-luna"
+  name: "GPT-5.6 Luna"
+  vendor: "OpenAI"
+  data_url:
+  model_url: "https://openrouter.ai/openai/gpt-5.6-luna"
+  tagline: "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series."
+  context_tokens: 1050000
+  context_display: "1.05M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Jul 2026"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.2, "label": "$0.20"}
+    output: {"usd": 1.2, "label": "$1.20"}
+    cached: {"usd": 0.02, "label": "$0.02"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+gpt-5-6-terra-pro:
+  key: "gpt-5-6-terra-pro"
+  name: "GPT-5.6 Terra Pro"
+  vendor: "OpenAI"
+  data_url:
+  model_url: "https://openrouter.ai/openai/gpt-5.6-terra-pro"
+  tagline: "GPT-5.6 Terra Pro is the same underlying model as [GPT-5.6 Terra](https://openrouter.ai/openai/gpt-5.6-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  context_tokens: 1050000
+  context_display: "1.05M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Jul 2026"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 2.0, "label": "$2.00"}
+    output: {"usd": 12.0, "label": "$12.00"}
+    cached: {"usd": 0.2, "label": "$0.20"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+gpt-5-6-terra:
+  key: "gpt-5-6-terra"
+  name: "GPT-5.6 Terra"
+  vendor: "OpenAI"
+  data_url:
+  model_url: "https://openrouter.ai/openai/gpt-5.6-terra"
+  tagline: "GPT-5.6 Terra is a balanced model in OpenAI's GPT-5.6 series, positioned between the flagship Sol tier and the cost-efficient Luna tier."
+  context_tokens: 1050000
+  context_display: "1.05M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Jul 2026"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 2.0, "label": "$2.00"}
+    output: {"usd": 12.0, "label": "$12.00"}
+    cached: {"usd": 0.2, "label": "$0.20"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+claude-fable-5-1:
+  key: "claude-fable-5-1"
+  name: "Claude Fable 5.1"
+  vendor: "Anthropic"
+  data_url:
+  model_url: "https://openrouter.ai/anthropic/claude-fable-5.1"
+  tagline: "Claude Fable 5.1 improves on Claude Fable 5 across the board, with the biggest gains in agentic coding, long-running agentic workflows, and knowledge work: long code refactors, front-end and visual..."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Pdf"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 10.0, "label": "$10.00"}
+    output: {"usd": 50.0, "label": "$50.00"}
+    cached: {"usd": 0.25, "label": "$0.25"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+claude-opus-5:
+  key: "claude-opus-5"
+  name: "Claude Opus 5"
+  vendor: "Anthropic"
+  data_url:
+  model_url: "https://openrouter.ai/anthropic/claude-opus-5"
+  tagline: "Claude Opus 5 is Anthropic\u2019s flagship model for demanding reasoning, coding, and long-horizon agentic work."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Jul 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Pdf"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 5.0, "label": "$5.00"}
+    output: {"usd": 25.0, "label": "$25.00"}
+    cached: {"usd": 0.5, "label": "$0.50"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+claude-sonnet-5:
+  key: "claude-sonnet-5"
+  name: "Claude Sonnet 5"
+  vendor: "Anthropic"
+  data_url:
+  model_url: "https://openrouter.ai/anthropic/claude-sonnet-5"
+  tagline: "Sonnet 5 is Anthropic's most capable Sonnet-class model, with frontier performance across coding, agents, and professional work."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Jun 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Pdf"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 2.0, "label": "$2.00"}
+    output: {"usd": 10.0, "label": "$10.00"}
+    cached: {"usd": 0.2, "label": "$0.20"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+claude-fable-5:
+  key: "claude-fable-5"
+  name: "Claude Fable 5"
+  vendor: "Anthropic"
+  data_url:
+  model_url: "https://openrouter.ai/anthropic/claude-fable-5"
+  tagline: "Claude Fable 5 is a Mythos-class model from Anthropic, built for autonomous knowledge work and coding."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Jun 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Pdf"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 10.0, "label": "$10.00"}
+    output: {"usd": 50.0, "label": "$50.00"}
+    cached: {"usd": 1.0, "label": "$1.00"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+claude-opus-4-8:
+  key: "claude-opus-4-8"
+  name: "Claude Opus 4.8"
+  vendor: "Anthropic"
+  data_url:
+  model_url: "https://openrouter.ai/anthropic/claude-opus-4.8"
+  tagline: "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "May 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Pdf"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 5.0, "label": "$5.00"}
+    output: {"usd": 25.0, "label": "$25.00"}
+    cached: {"usd": 0.5, "label": "$0.50"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+claude-opus-4-7:
+  key: "claude-opus-4-7"
+  name: "Claude Opus 4.7"
+  vendor: "Anthropic"
+  data_url:
+  model_url: "https://openrouter.ai/anthropic/claude-opus-4.7"
+  tagline: "Opus 4.7 is the next generation of Anthropic's Opus family, built for long-running, asynchronous agents."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Apr 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Pdf"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 5.0, "label": "$5.00"}
+    output: {"usd": 25.0, "label": "$25.00"}
+    cached: {"usd": 0.5, "label": "$0.50"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+claude-sonnet-4-6:
+  key: "claude-sonnet-4-6"
+  name: "Claude Sonnet 4.6"
+  vendor: "Anthropic"
+  data_url:
+  model_url: "https://openrouter.ai/anthropic/claude-sonnet-4.6"
+  tagline: "Sonnet 4.6 is Anthropic's most capable Sonnet-class model yet, with frontier performance across coding, agents, and professional work."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Feb 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Pdf"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 3.0, "label": "$3.00"}
+    output: {"usd": 15.0, "label": "$15.00"}
+    cached: {"usd": 0.3, "label": "$0.30"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+claude-opus-4-6:
+  key: "claude-opus-4-6"
+  name: "Claude Opus 4.6"
+  vendor: "Anthropic"
+  data_url:
+  model_url: "https://openrouter.ai/anthropic/claude-opus-4.6"
+  tagline: "Opus 4.6 is Anthropic\u2019s strongest model for coding and long-running professional tasks."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Feb 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Pdf"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 5.0, "label": "$5.00"}
+    output: {"usd": 25.0, "label": "$25.00"}
+    cached: {"usd": 0.5, "label": "$0.50"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+claude-opus-4-5:
+  key: "claude-opus-4-5"
+  name: "Claude Opus 4.5"
+  vendor: "Anthropic"
+  data_url:
+  model_url: "https://openrouter.ai/anthropic/claude-opus-4.5"
+  tagline: "Claude Opus 4.5 is Anthropic\u2019s frontier reasoning model optimized for complex software engineering, agentic workflows, and long-horizon computer use."
+  context_tokens: 200000
+  context_display: "200K"
+  output_tokens: 64000
+  output_display: "64K"
+  knowledge_cutoff: "Unknown"
+  released: "Nov 2025"
+  reasoning: true
+  inputs: ["Pdf", "Image", "Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 5.0, "label": "$5.00"}
+    output: {"usd": 25.0, "label": "$25.00"}
+    cached: {"usd": 0.5, "label": "$0.50"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+claude-haiku-4-5:
+  key: "claude-haiku-4-5"
+  name: "Claude Haiku 4.5"
+  vendor: "Anthropic"
+  data_url:
+  model_url: "https://openrouter.ai/anthropic/claude-haiku-4.5"
+  tagline: "Claude Haiku 4.5 is Anthropic\u2019s fastest and most efficient model, delivering near-frontier intelligence at a fraction of the cost and latency of larger Claude models."
+  context_tokens: 200000
+  context_display: "200K"
+  output_tokens: 64000
+  output_display: "64K"
+  knowledge_cutoff: "Unknown"
+  released: "Oct 2025"
+  reasoning: true
+  inputs: ["Text", "Image", "Pdf"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 1.0, "label": "$1.00"}
+    output: {"usd": 5.0, "label": "$5.00"}
+    cached: {"usd": 0.1, "label": "$0.10"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+glm-5-3-prime:
+  key: "glm-5-3-prime"
+  name: "GLM 5.3 Prime"
+  vendor: "Zhipu"
+  data_url:
+  model_url: "https://openrouter.ai/z-ai/glm-5.3-prime"
+  tagline: "GLM-5.3-Prime is the high-speed variant of Z.ai's GLM-5.3, inheriting its full capabilities while delivering 1.5\u20132\u00d7 the output throughput through inference acceleration."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 2.8, "label": "$2.80"}
+    output: {"usd": 8.8, "label": "$8.80"}
+    cached: {"usd": 0.56, "label": "$0.56"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+glm-5-3-flashx:
+  key: "glm-5-3-flashx"
+  name: "GLM 5.3 FlashX"
+  vendor: "Zhipu"
+  data_url:
+  model_url: "https://openrouter.ai/z-ai/glm-5.3-flashx"
+  tagline: "GLM-5.3-FlashX is the high-speed variant of Z.ai's GLM-5.3-Flash, a native multimodal model delivering inference speeds of up to 200 tokens/s."
+  context_tokens: 1048576
+  context_display: "1.05M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Video"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.37, "label": "$0.37"}
+    output: {"usd": 1.25, "label": "$1.25"}
+    cached: {"usd": 0.09, "label": "$0.09"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+glm-5-3-flash:
+  key: "glm-5-3-flash"
+  name: "GLM 5.3 Flash"
+  vendor: "Zhipu"
+  data_url:
+  model_url: "https://openrouter.ai/z-ai/glm-5.3-flash"
+  tagline: "GLM-5.3-Flash is a native multimodal model from Z.ai."
+  context_tokens: 1310720
+  context_display: "1.31M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Aug 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Video"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.045, "label": "$0.04"}
+    output: {"usd": 0.6, "label": "$0.60"}
+    cached: {"usd": 0.0285, "label": "$0.03"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+glm-5-2:
+  key: "glm-5-2"
+  name: "GLM 5.2"
+  vendor: "Zhipu"
+  data_url:
+  model_url: "https://openrouter.ai/z-ai/glm-5.2"
+  tagline: "GLM 5.2 is a large-scale reasoning model from Z.ai."
+  context_tokens: 1048576
+  context_display: "1.05M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Jun 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.6496, "label": "$0.65"}
+    output: {"usd": 2.0416, "label": "$2.04"}
+    cached: {"usd": 0.1206, "label": "$0.12"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+glm-5-1:
+  key: "glm-5-1"
+  name: "GLM 5.1"
+  vendor: "Zhipu"
+  data_url:
+  model_url: "https://openrouter.ai/z-ai/glm-5.1"
+  tagline: "GLM-5.1 delivers a major leap in coding capability, with particularly significant gains in handling long-horizon tasks."
+  context_tokens: 204800
+  context_display: "205K"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Apr 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.966, "label": "$0.97"}
+    output: {"usd": 3.036, "label": "$3.04"}
+    cached: {"usd": 0.1794, "label": "$0.18"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+glm-5v-turbo:
+  key: "glm-5v-turbo"
+  name: "GLM 5V Turbo"
+  vendor: "Zhipu"
+  data_url:
+  model_url: "https://openrouter.ai/z-ai/glm-5v-turbo"
+  tagline: "GLM-5V-Turbo is Z.ai\u2019s first native multimodal agent foundation model, built for vision-based coding and agent-driven tasks."
+  context_tokens: 202752
+  context_display: "203K"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Apr 2026"
+  reasoning: true
+  inputs: ["Image", "Text", "Video"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 1.2, "label": "$1.20"}
+    output: {"usd": 4.0, "label": "$4.00"}
+    cached: {"usd": 0.24, "label": "$0.24"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+glm-5-turbo:
+  key: "glm-5-turbo"
+  name: "GLM 5 Turbo"
+  vendor: "Zhipu"
+  data_url:
+  model_url: "https://openrouter.ai/z-ai/glm-5-turbo"
+  tagline: "GLM-5 Turbo is a new model from Z.ai designed for fast inference and strong performance in agent-driven environments such as OpenClaw scenarios."
+  context_tokens: 202752
+  context_display: "203K"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Mar 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 1.2, "label": "$1.20"}
+    output: {"usd": 4.0, "label": "$4.00"}
+    cached: {"usd": 0.24, "label": "$0.24"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+glm-5:
+  key: "glm-5"
+  name: "GLM 5"
+  vendor: "Zhipu"
+  data_url:
+  model_url: "https://openrouter.ai/z-ai/glm-5"
+  tagline: "GLM-5 is Z.ai\u2019s flagship open-source foundation model engineered for complex systems design and long-horizon agent workflows."
+  context_tokens: 204800
+  context_display: "205K"
+  output_tokens: 128000
+  output_display: "128K"
+  knowledge_cutoff: "Unknown"
+  released: "Feb 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.6, "label": "$0.60"}
+    output: {"usd": 1.92, "label": "$1.92"}
+    cached: {"usd": 0.12, "label": "$0.12"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+glm-4-7-flash:
+  key: "glm-4-7-flash"
+  name: "GLM 4.7 Flash"
+  vendor: "Zhipu"
+  data_url:
+  model_url: "https://openrouter.ai/z-ai/glm-4.7-flash"
+  tagline: "As a 30B-class SOTA model, GLM-4.7-Flash offers a new option that balances performance and efficiency."
+  context_tokens: 200000
+  context_display: "200K"
+  output_tokens: 117964
+  output_display: "118K"
+  knowledge_cutoff: "Unknown"
+  released: "Jan 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.0605, "label": "$0.06"}
+    output: {"usd": 0.4, "label": "$0.40"}
+    cached: {"usd": null, "label": "Not published"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+glm-4-7:
+  key: "glm-4-7"
+  name: "GLM 4.7"
+  vendor: "Zhipu"
+  data_url:
+  model_url: "https://openrouter.ai/z-ai/glm-4.7"
+  tagline: "GLM-4.7 is Z.ai\u2019s latest flagship model, featuring upgrades in two key areas: enhanced programming capabilities and more stable multi-step reasoning/execution."
+  context_tokens: 204800
+  context_display: "205K"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Dec 2025"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.4, "label": "$0.40"}
+    output: {"usd": 1.75, "label": "$1.75"}
+    cached: {"usd": 0.08, "label": "$0.08"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+deepseek-v4-flash-vision-exp:
+  key: "deepseek-v4-flash-vision-exp"
+  name: "DeepSeek V4 Flash Vision Exp"
+  vendor: "DeepSeek"
+  data_url:
+  model_url: "https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp"
+  tagline: "DeepSeek V4 Flash Vision Exp is an experimental vision-enabled version of [DeepSeek V4 Flash 0731](https://openrouter.ai/deepseek/deepseek-v4-flash-0731) from DeepSeek, adding image understanding while matching the base model on text capabilities including agents,..."
+  context_tokens: 1048576
+  context_display: "1.05M"
+  output_tokens: 943718
+  output_display: "944K"
+  knowledge_cutoff: "Unknown"
+  released: "Aug 2026"
+  reasoning: true
+  inputs: ["Text", "Image"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.22, "label": "$0.22"}
+    output: {"usd": 0.66, "label": "$0.66"}
+    cached: {"usd": 0.007, "label": "$0.007"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+deepseek-v4-pro-0813:
+  key: "deepseek-v4-pro-0813"
+  name: "DeepSeek V4 Pro 0813"
+  vendor: "DeepSeek"
+  data_url:
+  model_url: "https://openrouter.ai/deepseek/deepseek-v4-pro-0813"
+  tagline: "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek."
+  context_tokens: 1048576
+  context_display: "1.05M"
+  output_tokens: 384000
+  output_display: "384K"
+  knowledge_cutoff: "Unknown"
+  released: "Aug 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.462, "label": "$0.46"}
+    output: {"usd": 1.386, "label": "$1.39"}
+    cached: {"usd": 0.0154, "label": "$0.02"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+deepseek-v4-flash-0731:
+  key: "deepseek-v4-flash-0731"
+  name: "DeepSeek V4 Flash 0731"
+  vendor: "DeepSeek"
+  data_url:
+  model_url: "https://openrouter.ai/deepseek/deepseek-v4-flash-0731"
+  tagline: "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total."
+  context_tokens: 1310720
+  context_display: "1.31M"
+  output_tokens: 943718
+  output_display: "944K"
+  knowledge_cutoff: "Unknown"
+  released: "Jul 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.03, "label": "$0.03"}
+    output: {"usd": 0.32, "label": "$0.32"}
+    cached: {"usd": 0.016, "label": "$0.02"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+deepseek-v4-pro:
+  key: "deepseek-v4-pro"
+  name: "DeepSeek V4 Pro 0423"
+  vendor: "DeepSeek"
+  data_url:
+  model_url: "https://openrouter.ai/deepseek/deepseek-v4-pro"
+  tagline: "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window."
+  context_tokens: 1048576
+  context_display: "1.05M"
+  output_tokens: 384000
+  output_display: "384K"
+  knowledge_cutoff: "Unknown"
+  released: "Apr 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.8719, "label": "$0.87"}
+    output: {"usd": 1.7438, "label": "$1.74"}
+    cached: {"usd": 0.0727, "label": "$0.07"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+deepseek-v4-flash:
+  key: "deepseek-v4-flash"
+  name: "DeepSeek V4 Flash 0423"
+  vendor: "DeepSeek"
+  data_url:
+  model_url: "https://openrouter.ai/deepseek/deepseek-v4-flash"
+  tagline: "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window."
+  context_tokens: 1048576
+  context_display: "1.05M"
+  output_tokens: 384000
+  output_display: "384K"
+  knowledge_cutoff: "Unknown"
+  released: "Apr 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.0686, "label": "$0.07"}
+    output: {"usd": 0.1372, "label": "$0.14"}
+    cached: {"usd": 0.0137, "label": "$0.01"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+deepseek-v3-2:
+  key: "deepseek-v3-2"
+  name: "DeepSeek V3.2"
+  vendor: "DeepSeek"
+  data_url:
+  model_url: "https://openrouter.ai/deepseek/deepseek-v3.2"
+  tagline: "DeepSeek-V3.2 is a large language model designed to harmonize high computational efficiency with strong reasoning and agentic tool-use performance."
+  context_tokens: 163840
+  context_display: "164K"
+  output_tokens: 65536
+  output_display: "66K"
+  knowledge_cutoff: "Unknown"
+  released: "Dec 2025"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.269, "label": "$0.27"}
+    output: {"usd": 0.4, "label": "$0.40"}
+    cached: {"usd": 0.1345, "label": "$0.13"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+deepseek-v3-2-exp:
+  key: "deepseek-v3-2-exp"
+  name: "DeepSeek V3.2 Exp"
+  vendor: "DeepSeek"
+  data_url:
+  model_url: "https://openrouter.ai/deepseek/deepseek-v3.2-exp"
+  tagline: "DeepSeek-V3.2-Exp is an experimental large language model released by DeepSeek as an intermediate step between V3.1 and future architectures."
+  context_tokens: 163840
+  context_display: "164K"
+  output_tokens: 65536
+  output_display: "66K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2025"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.27, "label": "$0.27"}
+    output: {"usd": 0.41, "label": "$0.41"}
+    cached: {"usd": null, "label": "Not published"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+deepseek-v3-1-terminus:
+  key: "deepseek-v3-1-terminus"
+  name: "DeepSeek V3.1 Terminus"
+  vendor: "DeepSeek"
+  data_url:
+  model_url: "https://openrouter.ai/deepseek/deepseek-v3.1-terminus"
+  tagline: "DeepSeek-V3.1 Terminus is an update to [DeepSeek V3.1](/deepseek/deepseek-chat-v3.1) that maintains the model's original capabilities while addressing issues reported by users, including language consistency and agent capabilities, further optimizing the model's..."
+  context_tokens: 163840
+  context_display: "164K"
+  output_tokens: 32768
+  output_display: "33K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2025"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.27, "label": "$0.27"}
+    output: {"usd": 1.0, "label": "$1.00"}
+    cached: {"usd": 0.135, "label": "$0.14"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+deepseek-chat-v3-1:
+  key: "deepseek-chat-v3-1"
+  name: "DeepSeek V3.1"
+  vendor: "DeepSeek"
+  data_url:
+  model_url: "https://openrouter.ai/deepseek/deepseek-chat-v3.1"
+  tagline: "DeepSeek-V3.1 is a large hybrid reasoning model (671B parameters, 37B active) that supports both thinking and non-thinking modes via prompt templates."
+  context_tokens: 163840
+  context_display: "164K"
+  output_tokens: 32768
+  output_display: "33K"
+  knowledge_cutoff: "Unknown"
+  released: "Aug 2025"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.25, "label": "$0.25"}
+    output: {"usd": 0.95, "label": "$0.95"}
+    cached: {"usd": 0.13, "label": "$0.13"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+deepseek-r1-0528:
+  key: "deepseek-r1-0528"
+  name: "R1 0528"
+  vendor: "DeepSeek"
+  data_url:
+  model_url: "https://openrouter.ai/deepseek/deepseek-r1-0528"
+  tagline: "May 28th update to the [original DeepSeek R1](/deepseek/deepseek-r1) Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens."
+  context_tokens: 163840
+  context_display: "164K"
+  output_tokens: 32768
+  output_display: "33K"
+  knowledge_cutoff: "Unknown"
+  released: "May 2025"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.5, "label": "$0.50"}
+    output: {"usd": 2.15, "label": "$2.15"}
+    cached: {"usd": 0.35, "label": "$0.35"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+qwen3-8-max-prime:
+  key: "qwen3-8-max-prime"
+  name: "Qwen3.8 Max Prime"
+  vendor: "Qwen (Alibaba)"
+  data_url:
+  model_url: "https://openrouter.ai/qwen/qwen3.8-max-prime"
+  tagline: "Qwen3.8 Max Prime is a higher-throughput variant of Qwen3.8 Max from Alibaba's Qwen team, served as a separate SKU at a higher price point."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Video"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 4.0, "label": "$4.00"}
+    output: {"usd": 12.0, "label": "$12.00"}
+    cached: {"usd": 0.5, "label": "$0.50"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+qwen3-8-omni-flash:
+  key: "qwen3-8-omni-flash"
+  name: "Qwen3.8 Omni Flash"
+  vendor: "Qwen (Alibaba)"
+  data_url:
+  model_url: "https://openrouter.ai/qwen/qwen3.8-omni-flash"
+  tagline: "Qwen3.8 Omni Flash is an omni-modal reasoning model from Alibaba, the first Qwen model built around agentic capabilities with native audio-video understanding."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Audio", "Video"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.15, "label": "$0.15"}
+    output: {"usd": 0.47, "label": "$0.47"}
+    cached: {"usd": 0.016, "label": "$0.02"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+qwen3-8-flash:
+  key: "qwen3-8-flash"
+  name: "Qwen3.8 Flash"
+  vendor: "Qwen (Alibaba)"
+  data_url:
+  model_url: "https://openrouter.ai/qwen/qwen3.8-flash"
+  tagline: "Qwen3.8 Flash is a multimodal reasoning model from Alibaba."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Aug 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Video"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.15, "label": "$0.15"}
+    output: {"usd": 0.47, "label": "$0.47"}
+    cached: {"usd": 0.016, "label": "$0.02"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+qwen3-8-27b:
+  key: "qwen3-8-27b"
+  name: "Qwen3.8 27B"
+  vendor: "Qwen (Alibaba)"
+  data_url:
+  model_url: "https://openrouter.ai/qwen/qwen3.8-27b"
+  tagline: "Qwen3.8 27B is an open-weight dense vision-language model from Qwen."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Aug 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Video"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.42, "label": "$0.42"}
+    output: {"usd": 3.0, "label": "$3.00"}
+    cached: {"usd": 0.085, "label": "$0.09"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+qwen3-8-2-4t-a95b:
+  key: "qwen3-8-2-4t-a95b"
+  name: "Qwen3.8 2.4T A95B"
+  vendor: "Qwen (Alibaba)"
+  data_url:
+  model_url: "https://openrouter.ai/qwen/qwen3.8-2.4t-a95b"
+  tagline: "Qwen3.8 2.4T A95B is an open-weight sparse mixture-of-experts model from Qwen and the open-weight variant of [Qwen3.8 Max](/qwen/qwen3.8-max), with 95 billion active parameters out of 2.4 trillion total."
+  context_tokens: 1048576
+  context_display: "1.05M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Aug 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 2.0, "label": "$2.00"}
+    output: {"usd": 6.0, "label": "$6.00"}
+    cached: {"usd": 0.25, "label": "$0.25"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+qwen3-7-flash:
+  key: "qwen3-7-flash"
+  name: "Qwen3.7 Flash"
+  vendor: "Qwen (Alibaba)"
+  data_url:
+  model_url: "https://openrouter.ai/qwen/qwen3.7-flash"
+  tagline: "Qwen3.7 Flash is a vision-language reasoning model from Alibaba."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 65536
+  output_display: "66K"
+  knowledge_cutoff: "Unknown"
+  released: "Jul 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Video"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.03, "label": "$0.03"}
+    output: {"usd": 0.13, "label": "$0.13"}
+    cached: {"usd": 0.006, "label": "$0.006"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+qwen3-7-plus:
+  key: "qwen3-7-plus"
+  name: "Qwen3.7 Plus"
+  vendor: "Qwen (Alibaba)"
+  data_url:
+  model_url: "https://openrouter.ai/qwen/qwen3.7-plus"
+  tagline: "Qwen3.7-Plus is a cost-effective model in Alibaba's Qwen3.7 series."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "Jun 2026"
+  reasoning: true
+  inputs: ["Text", "Image"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.32, "label": "$0.32"}
+    output: {"usd": 1.28, "label": "$1.28"}
+    cached: {"usd": 0.064, "label": "$0.06"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+qwen3-7-max:
+  key: "qwen3-7-max"
+  name: "Qwen3.7 Max"
+  vendor: "Qwen (Alibaba)"
+  data_url:
+  model_url: "https://openrouter.ai/qwen/qwen3.7-max"
+  tagline: "Qwen3.7-Max is the flagship model in Alibaba's Qwen3.7 series."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 131072
+  output_display: "131K"
+  knowledge_cutoff: "Unknown"
+  released: "May 2026"
+  reasoning: true
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 1.475, "label": "$1.48"}
+    output: {"usd": 4.425, "label": "$4.42"}
+    cached: {"usd": 0.295, "label": "$0.29"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+qwen3-5-plus-20260420:
+  key: "qwen3-5-plus-20260420"
+  name: "Qwen3.5 Plus 2026-04-20"
+  vendor: "Qwen (Alibaba)"
+  data_url:
+  model_url: "https://openrouter.ai/qwen/qwen3.5-plus-20260420"
+  tagline: "Qwen3.5 Plus (April 2026) is a large-scale multimodal language model from Alibaba."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 65536
+  output_display: "66K"
+  knowledge_cutoff: "Unknown"
+  released: "Apr 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Video"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.3, "label": "$0.30"}
+    output: {"usd": 1.8, "label": "$1.80"}
+    cached: {"usd": null, "label": "Not published"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+qwen3-6-flash:
+  key: "qwen3-6-flash"
+  name: "Qwen3.6 Flash"
+  vendor: "Qwen (Alibaba)"
+  data_url:
+  model_url: "https://openrouter.ai/qwen/qwen3.6-flash"
+  tagline: "Qwen3.6 Flash is a fast, efficient language model from Alibaba's Qwen 3.6 series."
+  context_tokens: 1000000
+  context_display: "1M"
+  output_tokens: 65536
+  output_display: "66K"
+  knowledge_cutoff: "Unknown"
+  released: "Apr 2026"
+  reasoning: true
+  inputs: ["Text", "Image", "Video"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.1875, "label": "$0.19"}
+    output: {"usd": 1.125, "label": "$1.12"}
+    cached: {"usd": null, "label": "Not published"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+command-a-plus:
+  key: "command-a-plus"
+  name: "Command A+"
+  vendor: "Cohere"
+  data_url:
+  model_url: "https://openrouter.ai/cohere/command-a-plus"
+  tagline: "Command A+ is Cohere's flagship model for enterprise agentic workflows."
+  context_tokens: 192000
+  context_display: "192K"
+  output_tokens: 64000
+  output_display: "64K"
+  knowledge_cutoff: "Unknown"
+  released: "Sep 2026"
+  reasoning: true
+  inputs: ["Text", "Image"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.3, "label": "$0.30"}
+    output: {"usd": 1.5, "label": "$1.50"}
+    cached: {"usd": 0.15, "label": "$0.15"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+command-a:
+  key: "command-a"
+  name: "Command A"
+  vendor: "Cohere"
+  data_url:
+  model_url: "https://openrouter.ai/cohere/command-a"
+  tagline: "Command A is an open-weights 111B parameter model with a 256k context window focused on delivering great performance across agentic, multilingual, and coding use cases."
+  context_tokens: 256000
+  context_display: "256K"
+  output_tokens: 8192
+  output_display: "8K"
+  knowledge_cutoff: "Unknown"
+  released: "Mar 2025"
+  reasoning: false
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 2.5, "label": "$2.50"}
+    output: {"usd": 10.0, "label": "$10.00"}
+    cached: {"usd": null, "label": "Not published"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+command-r7b-12-2024:
+  key: "command-r7b-12-2024"
+  name: "Command R7B (12-2024)"
+  vendor: "Cohere"
+  data_url:
+  model_url: "https://openrouter.ai/cohere/command-r7b-12-2024"
+  tagline: "Command R7B (12-2024) is a small, fast update of the Command R+ model, delivered in December 2024."
+  context_tokens: 128000
+  context_display: "128K"
+  output_tokens: 4000
+  output_display: "4K"
+  knowledge_cutoff: "Unknown"
+  released: "Dec 2024"
+  reasoning: false
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.0375, "label": "$0.04"}
+    output: {"usd": 0.15, "label": "$0.15"}
+    cached: {"usd": null, "label": "Not published"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+command-r-08-2024:
+  key: "command-r-08-2024"
+  name: "Command R (08-2024)"
+  vendor: "Cohere"
+  data_url:
+  model_url: "https://openrouter.ai/cohere/command-r-08-2024"
+  tagline: "command-r-08-2024 is an update of the [Command R](/models/cohere/command-r) with improved performance for multilingual retrieval-augmented generation (RAG) and tool use."
+  context_tokens: 128000
+  context_display: "128K"
+  output_tokens: 4000
+  output_display: "4K"
+  knowledge_cutoff: "Unknown"
+  released: "Aug 2024"
+  reasoning: false
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 0.15, "label": "$0.15"}
+    output: {"usd": 0.6, "label": "$0.60"}
+    cached: {"usd": null, "label": "Not published"}
+  scores: {}
+  momentum:
+    has_usage: false
+
+command-r-plus-08-2024:
+  key: "command-r-plus-08-2024"
+  name: "Command R+ (08-2024)"
+  vendor: "Cohere"
+  data_url:
+  model_url: "https://openrouter.ai/cohere/command-r-plus-08-2024"
+  tagline: "command-r-plus-08-2024 is an update of the [Command R+](/models/cohere/command-r-plus) with roughly 50% higher throughput and 25% lower latencies as compared to the previous Command R+ version, while keeping the hardware footprint..."
+  context_tokens: 128000
+  context_display: "128K"
+  output_tokens: 4000
+  output_display: "4K"
+  knowledge_cutoff: "Unknown"
+  released: "Aug 2024"
+  reasoning: false
+  inputs: ["Text"]
+  outputs: ["Text"]
+  weights_url:
+  pricing:
+    input: {"usd": 2.5, "label": "$2.50"}
+    output: {"usd": 10.0, "label": "$10.00"}
+    cached: {"usd": null, "label": "Not published"}
+  scores: {}
+  momentum:
+    has_usage: false

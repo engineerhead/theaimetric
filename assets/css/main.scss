@@ -453,3 +453,593 @@ tbody tr:nth-child(even) {
     transition: none;
   }
 }
+
+/* ==========================================================================
+   Model comparison pages
+   ========================================================================== */
+
+.cmp {
+  --cmp-m1: #4f46e5; /* indigo — model 1 */
+  --cmp-m2: #0d9488; /* teal — model 2 */
+  --cmp-best-bg: rgba(79, 70, 229, 0.08);
+  margin-top: 1.25rem;
+}
+
+/* Hero: the two contenders + highlight toggle */
+.cmp-hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+.cmp-hero__models {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  flex: 1 1 420px;
+}
+
+.cmp-hero__model {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--tm-border);
+  border-left: 4px solid var(--cmp-m1);
+  border-radius: var(--tm-radius);
+  background: var(--tm-card);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.cmp-hero__model--m2 {
+  border-left-color: var(--cmp-m2);
+}
+
+.cmp-hero__model:hover {
+  transform: translateY(-2px);
+  border-color: #d8dcec;
+  box-shadow: var(--tm-shadow-hover);
+}
+
+.cmp-hero__vendor {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--tm-muted);
+}
+
+.cmp-hero__name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: $text-color;
+}
+
+.cmp-hero__stats {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--tm-muted);
+}
+
+.cmp-highlight-toggle {
+  border: 1px solid var(--tm-border);
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: var(--tm-card);
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.cmp-highlight-toggle:hover {
+  border-color: #c9cfe8;
+  color: var(--tm-accent);
+}
+
+/* Sections */
+.cmp-section {
+  margin-bottom: 2.25rem;
+}
+
+.cmp-section__title {
+  font-size: 1.3rem;
+  margin: 0 0 0.35rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--tm-border);
+}
+
+.cmp-section__title-note {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tm-muted);
+  margin-left: 0.4rem;
+}
+
+.cmp-section__note {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: var(--tm-muted);
+}
+
+/* Capability bars */
+.cmp-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.cmp-score-row {
+  display: grid;
+  grid-template-columns: 170px 1fr 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--tm-border);
+  border-radius: 10px;
+  background: var(--tm-card);
+}
+
+.cmp-dim {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.cmp-barcell {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.cmp-bar {
+  flex: 1 1 auto;
+  height: 14px;
+  border-radius: 999px;
+  background: #eef0f6;
+  overflow: hidden;
+}
+
+.cmp-bar__fill {
+  height: 100%;
+  border-radius: 999px;
+  opacity: 0.38;
+}
+
+.cmp-bar__fill--m1 { background: var(--cmp-m1); }
+.cmp-bar__fill--m2 { background: var(--cmp-m2); }
+
+.cmp-bar__fill.is-best { opacity: 1; }
+
+.cmp-bar__label {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.cmp-bar__label .cmp-denom {
+  font-weight: 400;
+  color: var(--tm-muted);
+  font-size: 0.8em;
+}
+
+.cmp-nodata,
+.cmp-muted {
+  color: #9aa1ad;
+  font-size: 0.85rem;
+}
+
+.cmp-trend {
+  color: #15803d;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Capability radar */
+.cmp-radar {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.25rem 0.5rem;
+  border: 1px solid var(--tm-border);
+  border-radius: 10px;
+  background: var(--tm-card);
+}
+
+.cmp-radar__legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.cmp-radar__key {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.cmp-radar__key em {
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--tm-muted);
+}
+
+.cmp-radar__key em a {
+  color: inherit;
+}
+
+.cmp-radar__swatch {
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
+  border-radius: 3px;
+}
+
+.cmp-radar__swatch--m1 { background: var(--cmp-m1); }
+.cmp-radar__swatch--m2 { background: var(--cmp-m2); }
+
+.cmp-radar__mount {
+  display: flex;
+  justify-content: center;
+}
+
+.cmp-radar__mount[hidden] { display: none; } /* hidden-attribute guard */
+
+.cmp-radar__svg {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+}
+
+.cmp-radar__ring {
+  fill: none;
+  stroke: #eef0f6;
+  stroke-width: 1;
+}
+
+.cmp-radar__ring--outer {
+  stroke: #d8dcec;
+}
+
+.cmp-radar__spoke {
+  stroke: #eef0f6;
+  stroke-width: 1;
+}
+
+.cmp-radar__area {
+  stroke-width: 1.6;
+}
+
+.cmp-radar__area--m1 {
+  fill: rgba(79, 70, 229, 0.14);
+  stroke: var(--cmp-m1);
+}
+
+.cmp-radar__area--m2 {
+  fill: rgba(13, 148, 136, 0.14);
+  stroke: var(--cmp-m2);
+}
+
+.cmp-radar__dot--m1 { fill: var(--cmp-m1); }
+.cmp-radar__dot--m2 { fill: var(--cmp-m2); }
+
+.cmp-radar__label {
+  fill: #3a4150;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Tables (overview / pricing / momentum) */
+.cmp-tablewrap {
+  overflow-x: auto;
+  border: 1px solid var(--tm-border);
+  border-radius: 10px;
+  background: var(--tm-card);
+}
+
+.cmp-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.cmp-table thead {
+  background: #f3f4f9;
+}
+
+.cmp-table thead th {
+  text-align: left;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--tm-muted);
+  border-bottom: 1px solid var(--tm-border);
+}
+
+.cmp-table tbody th {
+  text-align: left;
+  font-weight: 600;
+  padding: 0.55rem 0.9rem;
+  white-space: nowrap;
+  color: #3a4150;
+  border-bottom: 1px solid #eef0f6;
+  width: 1%;
+}
+
+.cmp-table tbody td {
+  padding: 0.55rem 0.9rem;
+  border-bottom: 1px solid #eef0f6;
+}
+
+.cmp-table tbody tr:last-child th,
+.cmp-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.cmp-best-chip {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: var(--cmp-best-bg);
+  color: var(--tm-accent-strong);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  vertical-align: 1px;
+}
+
+.cmp-pricing__note {
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+  color: #3a4150;
+}
+
+/* Verdict + attribution */
+.cmp-verdict {
+  margin-bottom: 2.25rem;
+}
+
+.cmp-src {
+  font-size: 0.8rem;
+  color: var(--tm-muted);
+  border-top: 1px solid var(--tm-border);
+  padding-top: 0.8rem;
+  margin-top: 2rem;
+}
+
+/* Related comparisons */
+.cmp-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cmp-related__chip {
+  border: 1px solid #d4d8e8;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+  background: var(--tm-card);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.cmp-related__chip:hover {
+  border-color: var(--tm-accent);
+  color: var(--tm-accent);
+}
+
+/* Highlight state: toggle dims everything, best stays full */
+.cmp[data-highlight="off"] .cmp-bar__fill.is-best {
+  opacity: 0.55;
+}
+
+.cmp[data-highlight="off"] .cmp-best-chip {
+  visibility: hidden;
+}
+
+/* ==========================================================================
+   Comparison index page
+   ========================================================================== */
+
+.cmp-index__picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--tm-border);
+  border-radius: var(--tm-radius);
+  background: var(--tm-card);
+  margin-bottom: 0.6rem;
+}
+
+.cmp-index__picker select {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 0.55rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  border: 1px solid var(--tm-border);
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+}
+
+.cmp-index__picker select:focus {
+  outline: none;
+  border-color: var(--tm-accent);
+  box-shadow: 0 0 0 3px var(--tm-accent-soft);
+}
+
+.cmp-index__picker button {
+  border: 1px solid var(--tm-border);
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: #fff;
+  color: inherit;
+  cursor: pointer;
+}
+
+.cmp-index__picker button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.cmp-index__hint {
+  font-size: 0.85rem;
+  color: var(--tm-muted);
+  margin-bottom: 1.5rem;
+  min-height: 1.2em;
+}
+
+.cmp-index__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.cmp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.05rem 1.15rem;
+  border: 1px solid var(--tm-border);
+  border-radius: var(--tm-radius);
+  background: var(--tm-card);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.cmp-card:hover {
+  transform: translateY(-2px);
+  border-color: #d8dcec;
+  box-shadow: var(--tm-shadow-hover);
+}
+
+.cmp-card__title {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+
+.cmp-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cmp-card__title a:hover {
+  color: var(--tm-accent);
+}
+
+.cmp-card__title span {
+  color: var(--tm-muted);
+  font-weight: 500;
+  font-size: 0.85em;
+}
+
+.cmp-card__vendors {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tm-muted);
+}
+
+.cmp-card__desc {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #4b5263;
+  flex-grow: 1;
+}
+
+.cmp-card__stats {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0.6rem 0 0;
+  border-top: 1px dashed var(--tm-border);
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cmp-card__stat-note {
+  color: var(--tm-muted);
+  font-size: 0.8em;
+}
+
+.cmp-card__open {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--tm-accent);
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .cmp-hero__models { grid-template-columns: 1fr; }
+  .cmp-score-row { grid-template-columns: 1fr; gap: 0.35rem; }
+  .cmp-table { font-size: 0.85rem; }
+  .cmp-index__grid { grid-template-columns: 1fr; }
+  .cmp-radar { grid-template-columns: 1fr; padding-top: 1rem; }
+  .cmp-radar__legend { flex-direction: row; gap: 1.25rem; }
+}
+
+/* Reduced motion for compare components */
+@media (prefers-reduced-motion: reduce) {
+  .cmp-hero__model,
+  .cmp-related__chip,
+  .cmp-card {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   External benchmark page (/compare/benchmarks/)
+   ========================================================================== */
+
+.cmp-ext__stamp { font-size: 0.85rem; color: var(--tm-muted); margin-bottom: 1.25rem; }
+.cmp-ext__stamp code { font-size: 0.95em; }
+.cmp-ext__id { display: block; font-size: 0.75rem; font-weight: 400; color: var(--tm-muted); }
+.cmp-ext__delta { margin: 0.75rem 0 2rem; font-size: 0.95rem; color: #3a4150; }
+.cmp-table .cmp-ext__row th[scope="row"] { width: 1%; white-space: nowrap; }
+
+/* Multi-source specs and provider price tables */
+.cmp-ext__spec-row th[scope="row"] { width: 1%; white-space: nowrap; }
+.cmp-ext__h3 { margin: 1.5rem 0 0.5rem; font-size: 1.05rem; }
+.cmp-ext__disc { color: var(--tm-muted); font-size: 0.85em; vertical-align: super; }
+.cmp-ext__foot { margin: 0.75rem 0 2rem; font-size: 0.85rem; color: #3a4150; }
+.cmp-ext__src { font-size: 0.8rem; font-weight: 400; color: var(--tm-muted); }
+
+/* Dynamic comparison mount (/compare/) */
+.cmp-index__picker select:disabled { opacity: 0.55; cursor: progress; }
+.cmp--dynamic { margin: 1.5rem 0 2.5rem; }
+.cmp--dynamic[hidden] { display: none; }
+.cmp-verdict .cmp-src { margin-top: 0.75rem; }
+

@@ -26,6 +26,9 @@ collections:
   tools:
     output: true
     permalink: /tools/:name/
+  # comparisons:
+  #   output: true
+  #   permalink: /compare/:name/
 
 # Build settings
 markdown: kramdown
@@ -47,6 +50,14 @@ defaults:
       type: tools
     values:
       layout: single
+  # _comparisons collection
+  - scope:
+      path: "_comparisons"
+      type: comparisons
+    values:
+      layout: compare
+      classes: wide
+      toc: false
 author:
   name: Umair
 analytics:
@@ -59,11 +70,12 @@ analytics:
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - script/
