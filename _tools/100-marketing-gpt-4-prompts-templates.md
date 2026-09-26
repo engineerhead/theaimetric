@@ -12,4 +12,4 @@ review_url: /ai/2026/09/26/100-marketing-gpt-4-prompts-templates-review/
 
 - **Category:** Prompt Generator
 - **Pricing:** Not publicly documented
-- **Website:** [aitoptools.com](https://aitoptools.com/tool/100-marketing-gpt-4-prompts-templates/){:target="_blank" rel="noopener"}
+- **Website:** [Gumroad](https://harshmakadia.gumroad.com/l/100-prompts-template){:target="_blank" rel="noopener"}

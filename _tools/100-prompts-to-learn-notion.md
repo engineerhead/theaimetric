@@ -12,4 +12,4 @@ review_url: /ai/2026/09/26/100-prompts-to-learn-notion-review/
 
 - **Category:** Prompt Generator
 - **Pricing:** Not publicly documented
-- **Website:** [aitoptools.com](https://aitoptools.com/tool/100-prompts-to-learn-notion/){:target="_blank" rel="noopener"}
+- **Website:** [Gumroad](https://alderhamhq.gumroad.com/l/notion-ai/AI50){:target="_blank" rel="noopener"}

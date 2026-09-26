@@ -12,4 +12,4 @@ review_url: /ai/2026/09/26/100-teachers-prompt-templates-review/
 
 - **Category:** Prompt Generator
 - **Pricing:** Not publicly documented
-- **Website:** [aitoptools.com](https://aitoptools.com/tool/100-teachers-prompt-templates/){:target="_blank" rel="noopener"}
+- **Website:** [Gumroad(https://theveller.gumroad.com/l/TeachersPromptTemplates-byTheVeller){:target="_blank" rel="noopener"}
