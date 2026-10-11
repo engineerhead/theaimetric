@@ -1,6 +1,6 @@
 ---
 title: "100 Teachers Prompt Templates"
-website: https://aitoptools.com/tool/100-teachers-prompt-templates/
+website: https://theveller.gumroad.com/l/TeachersPromptTemplates-byTheVeller
 category: "Prompt Generator"
 pricing: Not publicly documented
 open_source: false

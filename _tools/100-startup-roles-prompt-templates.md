@@ -1,6 +1,6 @@
 ---
 title: "100 Startup Roles Prompt Templates"
-website: https://aitoptools.com/tool/100-startup-roles-prompt-templates/
+website: https://theveller.gumroad.com/l/StartupRolesPromptTemplates-byTheVeller
 category: "Prompt Generator"
 pricing: Not publicly documented
 open_source: false

@@ -1,6 +1,6 @@
 ---
 title: "100 Prompts To Learn Notion"
-website: https://aitoptools.com/tool/100-prompts-to-learn-notion/
+website: https://alderhamhq.gumroad.com/l/notion-ai/AI50
 category: "Prompt Generator"
 pricing: Not publicly documented
 open_source: false

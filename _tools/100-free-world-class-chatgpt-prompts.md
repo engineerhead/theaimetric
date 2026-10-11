@@ -1,6 +1,6 @@
 ---
 title: "100 Free World Class Chatgpt Prompts"
-website: https://aitoptools.com/tool/100-free-world-class-chatgpt-prompts/
+website: https://notionpunk.gumroad.com/l/promptvault
 category: "Prompt Generator"
 pricing: Not publicly documented
 open_source: false

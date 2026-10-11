@@ -1,6 +1,6 @@
 ---
 title: "100 Marketing GPT 4 Prompts Templates"
-website: https://aitoptools.com/tool/100-marketing-gpt-4-prompts-templates/
+website: https://harshmakadia.gumroad.com/l/100-prompts-template
 category: "Prompt Generator"
 pricing: Not publicly documented
 open_source: false

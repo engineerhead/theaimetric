@@ -67,6 +67,11 @@ analytics:
     anonymize_ip: true
 
 
+# Include files that Jekyll would otherwise skip (leading underscore); Cloudflare
+# Pages reads _headers from the build output.
+include:
+  - _headers
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
