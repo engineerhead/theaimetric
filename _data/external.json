@@ -5,7 +5,7 @@
     "qwen3-8-max-preview",
     "deepseek-v4-1-flash"
   ],
-  "generated": "2026-10-05",
+  "generated": "2026-10-12",
   "models": {
     "anthropic-claude-fable-5": {
       "prices": [
@@ -285,141 +285,6 @@
           "source": "openrouter",
           "tools": true,
           "url": "https://openrouter.ai/anthropic/claude-fable-5.1"
-        }
-      ]
-    },
-    "anthropic-claude-opus-4-5": {
-      "prices": [
-        {
-          "cached": 0.5,
-          "context": 200000,
-          "context_display": "200K",
-          "input": 5.0,
-          "output": 25.0,
-          "provider": "Azure",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "global"
-        },
-        {
-          "cached": 0.5,
-          "context": 200000,
-          "context_display": "200K",
-          "input": 5.0,
-          "output": 25.0,
-          "provider": "Google",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "global"
-        },
-        {
-          "cached": 0.5,
-          "context": 200000,
-          "context_display": "200K",
-          "input": 5.0,
-          "output": 25.0,
-          "provider": "Amazon Bedrock",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": null
-        },
-        {
-          "cached": 0.5,
-          "context": 200000,
-          "context_display": "200K",
-          "input": 5.0,
-          "output": 25.0,
-          "provider": "Anthropic",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": null
-        },
-        {
-          "cached": 0.55,
-          "context": 200000,
-          "context_display": "200K",
-          "input": 5.5,
-          "output": 27.5,
-          "provider": "Amazon Bedrock",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "eu-west-1"
-        }
-      ],
-      "prices_best": [
-        {
-          "cached": 0.5,
-          "context": 200000,
-          "context_display": "200K",
-          "input": 5.0,
-          "output": 25.0,
-          "provider": "Azure",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "global"
-        },
-        {
-          "cached": 0.5,
-          "context": 200000,
-          "context_display": "200K",
-          "input": 5.0,
-          "output": 25.0,
-          "provider": "Google",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "global"
-        },
-        {
-          "cached": 0.5,
-          "context": 200000,
-          "context_display": "200K",
-          "input": 5.0,
-          "output": 25.0,
-          "provider": "Amazon Bedrock",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": null
-        },
-        {
-          "cached": 0.5,
-          "context": 200000,
-          "context_display": "200K",
-          "input": 5.0,
-          "output": 25.0,
-          "provider": "Anthropic",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": null
-        }
-      ],
-      "provider_total": 7,
-      "specs": [
-        {
-          "context": 200000,
-          "context_display": "200K",
-          "max_output": 64000,
-          "max_output_display": "64K",
-          "source": "openrouter",
-          "tools": true,
-          "url": "https://openrouter.ai/anthropic/claude-opus-4.5"
         }
       ]
     },
@@ -740,6 +605,19 @@
           "context_display": "1M",
           "input": 5.0,
           "output": 25.0,
+          "provider": "Amazon Bedrock",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": null
+        },
+        {
+          "cached": 0.5,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 5.0,
+          "output": 25.0,
           "provider": "Google",
           "quantization": "unknown",
           "sources": [
@@ -859,6 +737,19 @@
           "context_display": "1M",
           "input": 5.0,
           "output": 25.0,
+          "provider": "Amazon Bedrock",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": null
+        },
+        {
+          "cached": 0.5,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 5.0,
+          "output": 25.0,
           "provider": "Google",
           "quantization": "unknown",
           "sources": [
@@ -878,19 +769,6 @@
             "openrouter"
           ],
           "tier": null
-        },
-        {
-          "cached": 0.55,
-          "context": 1000000,
-          "context_display": "1M",
-          "input": 5.5,
-          "output": 27.5,
-          "provider": "Amazon Bedrock",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "us"
         }
       ],
       "provider_total": 5,
@@ -1509,22 +1387,195 @@
         }
       ]
     },
-    "claude-opus-5-5": {
+    "claude-haiku-5-5": {
       "prices": [
         {
-          "cached": 0.2,
+          "cached": 0.01,
           "context": 1000000,
           "context_display": "1M",
-          "input": 4.0,
-          "output": 20.0,
-          "provider": "Amazon Bedrock",
+          "input": 0.1,
+          "output": 0.5,
+          "provider": "Google",
           "quantization": "unknown",
           "sources": [
-            "litellm",
+            "openrouter"
+          ],
+          "tier": "global"
+        },
+        {
+          "cached": 0.01,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.1,
+          "output": 0.5,
+          "provider": "Azure",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "global"
+        },
+        {
+          "cached": 0.01,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.1,
+          "output": 0.5,
+          "provider": "Anthropic",
+          "quantization": "unknown",
+          "sources": [
             "openrouter"
           ],
           "tier": null
         },
+        {
+          "cached": 0.01,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.1,
+          "output": 0.5,
+          "provider": "Amazon Bedrock",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": null
+        },
+        {
+          "cached": 0.011,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.11,
+          "output": 0.55,
+          "provider": "Google",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "europe"
+        },
+        {
+          "cached": 0.011,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.11,
+          "output": 0.55,
+          "provider": "Google",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "us"
+        },
+        {
+          "cached": 0.011,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.11,
+          "output": 0.55,
+          "provider": "Azure",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "us"
+        },
+        {
+          "cached": 0.011,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.11,
+          "output": 0.55,
+          "provider": "Amazon Bedrock",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "us-east-1"
+        },
+        {
+          "cached": 0.011,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.11,
+          "output": 0.55,
+          "provider": "Amazon Bedrock",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "eu-west-1"
+        }
+      ],
+      "prices_best": [
+        {
+          "cached": 0.01,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.1,
+          "output": 0.5,
+          "provider": "Google",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "global"
+        },
+        {
+          "cached": 0.01,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.1,
+          "output": 0.5,
+          "provider": "Azure",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "global"
+        },
+        {
+          "cached": 0.01,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.1,
+          "output": 0.5,
+          "provider": "Anthropic",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": null
+        },
+        {
+          "cached": 0.01,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.1,
+          "output": 0.5,
+          "provider": "Amazon Bedrock",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": null
+        }
+      ],
+      "provider_total": 6,
+      "specs": [
+        {
+          "context": 1000000,
+          "context_display": "1M",
+          "max_output": 128000,
+          "max_output_display": "128K",
+          "source": "openrouter",
+          "tools": true,
+          "url": "https://openrouter.ai/anthropic/claude-haiku-5.5"
+        }
+      ]
+    },
+    "claude-opus-5-5": {
+      "prices": [
         {
           "cached": 0.2,
           "context": 1000000,
@@ -1577,19 +1628,6 @@
             "openrouter"
           ],
           "tier": "eu-west-1"
-        },
-        {
-          "cached": 0.22,
-          "context": 1000000,
-          "context_display": "1M",
-          "input": 4.4,
-          "output": 22.0,
-          "provider": "Amazon Bedrock",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "us-east-1"
         },
         {
           "cached": 0.22,
@@ -1663,20 +1701,6 @@
           "context_display": "1M",
           "input": 4.0,
           "output": 20.0,
-          "provider": "Amazon Bedrock",
-          "quantization": "unknown",
-          "sources": [
-            "litellm",
-            "openrouter"
-          ],
-          "tier": null
-        },
-        {
-          "cached": 0.2,
-          "context": 1000000,
-          "context_display": "1M",
-          "input": 4.0,
-          "output": 20.0,
           "provider": "Azure",
           "quantization": "unknown",
           "sources": [
@@ -1710,6 +1734,19 @@
             "openrouter"
           ],
           "tier": null
+        },
+        {
+          "cached": 0.22,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 4.4,
+          "output": 22.0,
+          "provider": "Amazon Bedrock",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "eu-west-1"
         },
         {
           "cached": 0.24,
@@ -1758,7 +1795,7 @@
     "claude-sonnet-5-5": {
       "prices": [
         {
-          "cached": 0.2,
+          "cached": 0.1,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.0,
@@ -1771,7 +1808,7 @@
           "tier": "global"
         },
         {
-          "cached": 0.2,
+          "cached": 0.1,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.0,
@@ -1784,7 +1821,7 @@
           "tier": null
         },
         {
-          "cached": 0.2,
+          "cached": 0.1,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.0,
@@ -1797,7 +1834,7 @@
           "tier": "global"
         },
         {
-          "cached": 0.2,
+          "cached": 0.1,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.0,
@@ -1810,7 +1847,7 @@
           "tier": null
         },
         {
-          "cached": 0.22,
+          "cached": 0.11,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.2,
@@ -1823,7 +1860,7 @@
           "tier": "us"
         },
         {
-          "cached": 0.22,
+          "cached": 0.11,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.2,
@@ -1836,7 +1873,7 @@
           "tier": "us"
         },
         {
-          "cached": 0.22,
+          "cached": 0.11,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.2,
@@ -1851,7 +1888,7 @@
       ],
       "prices_best": [
         {
-          "cached": 0.2,
+          "cached": 0.1,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.0,
@@ -1864,7 +1901,7 @@
           "tier": "global"
         },
         {
-          "cached": 0.2,
+          "cached": 0.1,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.0,
@@ -1877,7 +1914,7 @@
           "tier": null
         },
         {
-          "cached": 0.2,
+          "cached": 0.1,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.0,
@@ -1890,7 +1927,7 @@
           "tier": "global"
         },
         {
-          "cached": 0.2,
+          "cached": 0.1,
           "context": 1000000,
           "context_display": "1M",
           "input": 2.0,
@@ -2195,7 +2232,7 @@
           "tier": "fp4"
         }
       ],
-      "provider_total": 6,
+      "provider_total": 4,
       "specs": [
         {
           "context": 163840,
@@ -2359,7 +2396,7 @@
           "tier": null
         }
       ],
-      "provider_total": 5,
+      "provider_total": 3,
       "specs": [
         {
           "context": 163840,
@@ -2517,13 +2554,13 @@
           "tier": null
         }
       ],
-      "provider_total": 17,
+      "provider_total": 16,
       "specs": [
         {
           "context": 163840,
           "context_display": "164K",
-          "max_output": 65536,
-          "max_output_display": "66K",
+          "max_output": 147456,
+          "max_output_display": "147K",
           "source": "openrouter",
           "tools": true,
           "url": "https://openrouter.ai/deepseek/deepseek-v3.2"
@@ -2608,32 +2645,6 @@
           "tier": null
         },
         {
-          "cached": 0.0268,
-          "context": 1000000,
-          "context_display": "1M",
-          "input": 0.134,
-          "output": 0.268,
-          "provider": "Alibaba",
-          "quantization": "fp8",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "fp8"
-        },
-        {
-          "cached": 0.028,
-          "context": 1048576,
-          "context_display": "1.05M",
-          "input": 0.14,
-          "output": 0.28,
-          "provider": "Novita",
-          "quantization": "fp8",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "fp8"
-        },
-        {
           "cached": 0.028,
           "input": 0.14,
           "output": 0.28,
@@ -2654,14 +2665,40 @@
           "tier": null
         },
         {
-          "cached": 0.03,
-          "input": 0.15,
-          "output": 0.31,
-          "provider": "Azure",
+          "cached": 0.028,
+          "input": 0.14,
+          "output": 0.28,
+          "provider": "Novita",
           "sources": [
             "litellm"
           ],
           "tier": null
+        },
+        {
+          "cached": 0.03,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.15,
+          "output": 0.3,
+          "provider": "Alibaba",
+          "quantization": "fp8",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "fp8"
+        },
+        {
+          "cached": 0.031,
+          "context": 1048576,
+          "context_display": "1.05M",
+          "input": 0.21,
+          "output": 0.56,
+          "provider": "Azure",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "us"
         },
         {
           "cached": 0.006,
@@ -2715,32 +2752,6 @@
           "tier": null
         },
         {
-          "cached": 0.0268,
-          "context": 1000000,
-          "context_display": "1M",
-          "input": 0.134,
-          "output": 0.268,
-          "provider": "Alibaba",
-          "quantization": "fp8",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "fp8"
-        },
-        {
-          "cached": 0.028,
-          "context": 1048576,
-          "context_display": "1.05M",
-          "input": 0.14,
-          "output": 0.28,
-          "provider": "Novita",
-          "quantization": "fp8",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "fp8"
-        },
-        {
           "cached": 0.028,
           "input": 0.14,
           "output": 0.28,
@@ -2761,14 +2772,40 @@
           "tier": null
         },
         {
-          "cached": 0.03,
-          "input": 0.15,
-          "output": 0.31,
-          "provider": "Azure",
+          "cached": 0.028,
+          "input": 0.14,
+          "output": 0.28,
+          "provider": "Novita",
           "sources": [
             "litellm"
           ],
           "tier": null
+        },
+        {
+          "cached": 0.03,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.15,
+          "output": 0.3,
+          "provider": "Alibaba",
+          "quantization": "fp8",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "fp8"
+        },
+        {
+          "cached": 0.031,
+          "context": 1048576,
+          "context_display": "1.05M",
+          "input": 0.21,
+          "output": 0.56,
+          "provider": "Azure",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "us"
         },
         {
           "cached": 0.006,
@@ -2781,7 +2818,7 @@
           "tier": null
         }
       ],
-      "provider_total": 31,
+      "provider_total": 29,
       "specs": [
         {
           "context": 1048576,
@@ -2823,6 +2860,19 @@
           "tier": "fp8"
         },
         {
+          "cached": 0.028,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.13,
+          "output": 0.26,
+          "provider": "Venice",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": null
+        },
+        {
           "cached": 0.07,
           "context": 1048576,
           "context_display": "1.05M",
@@ -2850,19 +2900,6 @@
           "tier": null
         },
         {
-          "cached": 0.035,
-          "context": 1000000,
-          "context_display": "1M",
-          "input": 0.175,
-          "output": 0.35,
-          "provider": "Venice",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": null
-        },
-        {
           "cached": 0.007,
           "input": 0.22,
           "output": 0.66,
@@ -2885,6 +2922,19 @@
             "openrouter"
           ],
           "tier": null
+        },
+        {
+          "cached": 0.0374,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.374,
+          "output": 1.122,
+          "provider": "Alibaba",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "us-east-1"
         },
         {
           "cached": 0.026,
@@ -2941,6 +2991,19 @@
           "tier": "fp8"
         },
         {
+          "cached": 0.028,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.13,
+          "output": 0.26,
+          "provider": "Venice",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": null
+        },
+        {
           "cached": 0.07,
           "context": 1048576,
           "context_display": "1.05M",
@@ -2963,19 +3026,6 @@
           "quantization": "unknown",
           "sources": [
             "litellm",
-            "openrouter"
-          ],
-          "tier": null
-        },
-        {
-          "cached": 0.035,
-          "context": 1000000,
-          "context_display": "1M",
-          "input": 0.175,
-          "output": 0.35,
-          "provider": "Venice",
-          "quantization": "unknown",
-          "sources": [
             "openrouter"
           ],
           "tier": null
@@ -3031,7 +3081,7 @@
           "tier": null
         }
       ],
-      "provider_total": 33,
+      "provider_total": 30,
       "specs": [
         {
           "context": 1048576,
@@ -3084,15 +3134,11 @@
         },
         {
           "cached": 0.028,
-          "context": 1048576,
-          "context_display": "1.05M",
           "input": 0.44,
           "output": 1.32,
           "provider": "Novita",
-          "quantization": "unknown",
           "sources": [
-            "litellm",
-            "openrouter"
+            "litellm"
           ],
           "tier": null
         }
@@ -3136,15 +3182,11 @@
         },
         {
           "cached": 0.028,
-          "context": 1048576,
-          "context_display": "1.05M",
           "input": 0.44,
           "output": 1.32,
           "provider": "Novita",
-          "quantization": "unknown",
           "sources": [
-            "litellm",
-            "openrouter"
+            "litellm"
           ],
           "tier": null
         }
@@ -3188,6 +3230,19 @@
           "tier": "fp8"
         },
         {
+          "cached": 0.118,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 1.416,
+          "output": 2.832,
+          "provider": "Alibaba",
+          "quantization": "fp8",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "fp8"
+        },
+        {
           "cached": 0.135,
           "context": 1048576,
           "context_display": "1.05M",
@@ -3251,16 +3306,6 @@
           "input": 1.32,
           "output": 3.96,
           "provider": "BaseTen",
-          "sources": [
-            "litellm"
-          ],
-          "tier": null
-        },
-        {
-          "cached": 0.2,
-          "input": 2.4,
-          "output": 4.8,
-          "provider": "Alibaba",
           "sources": [
             "litellm"
           ],
@@ -3292,6 +3337,19 @@
           "tier": "fp8"
         },
         {
+          "cached": 0.118,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 1.416,
+          "output": 2.832,
+          "provider": "Alibaba",
+          "quantization": "fp8",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "fp8"
+        },
+        {
           "cached": 0.135,
           "context": 1048576,
           "context_display": "1.05M",
@@ -3359,19 +3417,9 @@
             "litellm"
           ],
           "tier": null
-        },
-        {
-          "cached": 0.2,
-          "input": 2.4,
-          "output": 4.8,
-          "provider": "Alibaba",
-          "sources": [
-            "litellm"
-          ],
-          "tier": null
         }
       ],
-      "provider_total": 26,
+      "provider_total": 23,
       "specs": [
         {
           "context": 1048576,
@@ -3429,6 +3477,19 @@
           "tier": null
         },
         {
+          "cached": 0.132,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 1.32,
+          "output": 3.96,
+          "provider": "Alibaba",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "us-east-1"
+        },
+        {
           "cached": 0.13,
           "context": 1048576,
           "context_display": "1.05M",
@@ -3448,6 +3509,19 @@
           "input": 1.32,
           "output": 3.96,
           "provider": "DeepSeek",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": null
+        },
+        {
+          "cached": 0.165,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 1.65,
+          "output": 4.95,
+          "provider": "Venice",
           "quantization": "unknown",
           "sources": [
             "openrouter"
@@ -3523,15 +3597,28 @@
             "openrouter"
           ],
           "tier": null
+        },
+        {
+          "cached": 0.165,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 1.65,
+          "output": 4.95,
+          "provider": "Venice",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": null
         }
       ],
-      "provider_total": 18,
+      "provider_total": 19,
       "specs": [
         {
           "context": 1048576,
           "context_display": "1.05M",
-          "max_output": 943718,
-          "max_output_display": "944K",
+          "max_output": 393216,
+          "max_output_display": "393K",
           "source": "openrouter",
           "tools": true,
           "url": "https://openrouter.ai/deepseek/deepseek-v4-pro-0813"
@@ -3542,11 +3629,11 @@
       "epoch": {
         "access": "Open weights",
         "as_of": "2026-09-09",
-        "ci_high": 157.56,
-        "ci_low": 148.77,
+        "ci_high": 157.33,
+        "ci_low": 148.49,
         "country": "China",
         "display": "DeepSeek V4.1 Flash",
-        "eci": 155.0,
+        "eci": 154.9,
         "organization": "DeepSeek",
         "page": "https://epoch.ai/models/deepseek-v4-1-flash"
       },
@@ -3569,14 +3656,14 @@
           "tier": "fp8"
         },
         {
-          "cached": 0.0048,
+          "cached": 0.0039,
           "context": 1048576,
           "context_display": "1.05M",
-          "discount": 0.2,
-          "input": 0.24,
+          "discount": 0.35,
+          "input": 0.195,
           "list_input": 0.3,
           "list_output": 1.2,
-          "output": 0.96,
+          "output": 0.78,
           "provider": "Novita",
           "quantization": "fp8",
           "sources": [
@@ -3621,6 +3708,19 @@
           "quantization": "unknown",
           "sources": [
             "litellm",
+            "openrouter"
+          ],
+          "tier": null
+        },
+        {
+          "cached": 0.006,
+          "context": 1048576,
+          "context_display": "1.05M",
+          "input": 0.3,
+          "output": 1.2,
+          "provider": "Fireworks",
+          "quantization": "unknown",
+          "sources": [
             "openrouter"
           ],
           "tier": null
@@ -3674,6 +3774,19 @@
             "openrouter"
           ],
           "tier": "us"
+        },
+        {
+          "cached": 0.014,
+          "context": 1048576,
+          "context_display": "1.05M",
+          "input": 0.6,
+          "output": 2.4,
+          "provider": "BaseTen",
+          "quantization": "fp32",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "fast"
         }
       ],
       "prices_best": [
@@ -3695,14 +3808,14 @@
           "tier": "fp8"
         },
         {
-          "cached": 0.0048,
+          "cached": 0.0039,
           "context": 1048576,
           "context_display": "1.05M",
-          "discount": 0.2,
-          "input": 0.24,
+          "discount": 0.35,
+          "input": 0.195,
           "list_input": 0.3,
           "list_output": 1.2,
-          "output": 0.96,
+          "output": 0.78,
           "provider": "Novita",
           "quantization": "fp8",
           "sources": [
@@ -3752,6 +3865,19 @@
           "tier": null
         },
         {
+          "cached": 0.006,
+          "context": 1048576,
+          "context_display": "1.05M",
+          "input": 0.3,
+          "output": 1.2,
+          "provider": "Fireworks",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": null
+        },
+        {
           "cached": 0.0075,
           "context": 1000000,
           "context_display": "1M",
@@ -3787,19 +3913,6 @@
             "litellm"
           ],
           "tier": null
-        },
-        {
-          "cached": 0.009,
-          "context": 1048576,
-          "context_display": "1.05M",
-          "input": 0.45,
-          "output": 1.8,
-          "provider": "Fireworks",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "us"
         }
       ],
       "provider_total": 31,
@@ -3844,24 +3957,24 @@
       "epoch": {
         "access": "Closed weights",
         "as_of": "2026-08-14",
-        "ci_high": 158.34,
-        "ci_low": 153.65,
+        "ci_high": 157.92,
+        "ci_low": 153.6,
         "country": "China",
         "display": "GLM-5.3",
-        "eci": 155.76,
+        "eci": 155.61,
         "organization": "Z.ai (Zhipu AI)",
         "page": "https://epoch.ai/models/glm-5-3"
       },
       "prices": [
         {
-          "cached": 0.078,
+          "cached": 0.13,
           "context": 1048576,
           "context_display": "1.05M",
-          "discount": 0.7,
-          "input": 0.42,
+          "discount": 0.5,
+          "input": 0.7,
           "list_input": 1.4,
           "list_output": 4.4,
-          "output": 1.32,
+          "output": 2.2,
           "provider": "Novita",
           "quantization": "fp8",
           "sources": [
@@ -3901,19 +4014,6 @@
           "tier": null
         },
         {
-          "cached": 0.14,
-          "context": 1048576,
-          "context_display": "1.05M",
-          "input": 1.4,
-          "output": 4.4,
-          "provider": "BaseTen",
-          "quantization": "fp4",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "fp4"
-        },
-        {
           "cached": 0.26,
           "context": 1000000,
           "context_display": "1M",
@@ -3927,6 +4027,20 @@
           "sources": [
             "openrouter",
             "venice"
+          ],
+          "tier": null
+        },
+        {
+          "cached": 0.26,
+          "context": 1048575,
+          "context_display": "1.05M",
+          "input": 1.4,
+          "output": 4.4,
+          "provider": "Together",
+          "quantization": "unknown",
+          "sources": [
+            "litellm",
+            "openrouter"
           ],
           "tier": null
         },
@@ -3957,10 +4071,10 @@
           "tier": "fp8"
         },
         {
-          "cached": 0.26,
-          "input": 1.4,
-          "output": 4.4,
-          "provider": "Together",
+          "cached": 0.312,
+          "input": 1.68,
+          "output": 5.28,
+          "provider": "Amazon Bedrock",
           "sources": [
             "litellm"
           ],
@@ -4018,14 +4132,14 @@
       ],
       "prices_best": [
         {
-          "cached": 0.078,
+          "cached": 0.13,
           "context": 1048576,
           "context_display": "1.05M",
-          "discount": 0.7,
-          "input": 0.42,
+          "discount": 0.5,
+          "input": 0.7,
           "list_input": 1.4,
           "list_output": 4.4,
-          "output": 1.32,
+          "output": 2.2,
           "provider": "Novita",
           "quantization": "fp8",
           "sources": [
@@ -4065,19 +4179,6 @@
           "tier": null
         },
         {
-          "cached": 0.14,
-          "context": 1048576,
-          "context_display": "1.05M",
-          "input": 1.4,
-          "output": 4.4,
-          "provider": "BaseTen",
-          "quantization": "fp4",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "fp4"
-        },
-        {
           "cached": 0.26,
           "context": 1000000,
           "context_display": "1M",
@@ -4091,6 +4192,20 @@
           "sources": [
             "openrouter",
             "venice"
+          ],
+          "tier": null
+        },
+        {
+          "cached": 0.26,
+          "context": 1048575,
+          "context_display": "1.05M",
+          "input": 1.4,
+          "output": 4.4,
+          "provider": "Together",
+          "quantization": "unknown",
+          "sources": [
+            "litellm",
+            "openrouter"
           ],
           "tier": null
         },
@@ -4121,10 +4236,10 @@
           "tier": "fp8"
         },
         {
-          "cached": 0.26,
-          "input": 1.4,
-          "output": 4.4,
-          "provider": "Together",
+          "cached": 0.312,
+          "input": 1.68,
+          "output": 5.28,
+          "provider": "Amazon Bedrock",
           "sources": [
             "litellm"
           ],
@@ -4139,15 +4254,28 @@
             "litellm"
           ],
           "tier": null
+        },
+        {
+          "cached": 0.21,
+          "context": 1048576,
+          "context_display": "1.05M",
+          "input": 2.1,
+          "output": 6.6,
+          "provider": "BaseTen",
+          "quantization": "fp8",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "fast"
         }
       ],
-      "provider_total": 35,
+      "provider_total": 37,
       "specs": [
         {
           "context": 1048576,
           "context_display": "1.05M",
-          "max_output": 131072,
-          "max_output_display": "131K",
+          "max_output": 943718,
+          "max_output_display": "944K",
           "source": "openrouter",
           "tools": true,
           "url": "https://openrouter.ai/z-ai/glm-5.3"
@@ -4192,31 +4320,15 @@
       "epoch": {
         "access": "Closed weights",
         "as_of": "2026-07-09",
-        "ci_high": 165.26,
-        "ci_low": 159.26,
+        "ci_high": 165.1,
+        "ci_low": 159.27,
         "country": "United States of America",
         "display": "GPT-5.6 Sol",
-        "eci": 161.8,
+        "eci": 161.66,
         "organization": "OpenAI",
         "page": "https://epoch.ai/models/gpt-5-6-sol"
       },
       "prices": [
-        {
-          "cached": 0.1,
-          "context": 1050000,
-          "context_display": "1.05M",
-          "discount": 0.5,
-          "input": 1.0,
-          "list_input": 2.0,
-          "list_output": 10.0,
-          "output": 5.0,
-          "provider": "OpenAI",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "flex"
-        },
         {
           "cached": 0.2,
           "context": 1050000,
@@ -4306,20 +4418,21 @@
       ],
       "prices_best": [
         {
-          "cached": 0.1,
+          "cached": 0.2,
           "context": 1050000,
           "context_display": "1.05M",
           "discount": 0.5,
-          "input": 1.0,
-          "list_input": 2.0,
-          "list_output": 10.0,
-          "output": 5.0,
+          "input": 2.0,
+          "list_input": 4.0,
+          "list_output": 20.0,
+          "output": 10.0,
           "provider": "OpenAI",
           "quantization": "unknown",
           "sources": [
+            "litellm",
             "openrouter"
           ],
-          "tier": "flex"
+          "tier": null
         },
         {
           "cached": 0.4,
@@ -4374,33 +4487,6 @@
     "gpt-6-1-sol": {
       "prices": [
         {
-          "cached": 0.05,
-          "context": 1050000,
-          "context_display": "1.05M",
-          "input": 1.0,
-          "output": 5.0,
-          "provider": "OpenAI",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "flex"
-        },
-        {
-          "cached": 0.1,
-          "context": 1050000,
-          "context_display": "1.05M",
-          "input": 2.0,
-          "output": 10.0,
-          "provider": "Azure",
-          "quantization": "unknown",
-          "sources": [
-            "litellm",
-            "openrouter"
-          ],
-          "tier": null
-        },
-        {
           "cached": 0.1,
           "context": 1050000,
           "context_display": "1.05M",
@@ -4465,29 +4551,29 @@
             "openrouter"
           ],
           "tier": "fast"
-        }
-      ],
-      "prices_best": [
+        },
         {
-          "cached": 0.05,
+          "cached": 0.6,
           "context": 1050000,
           "context_display": "1.05M",
-          "input": 1.0,
-          "output": 5.0,
+          "input": 12.0,
+          "output": 60.0,
           "provider": "OpenAI",
           "quantization": "unknown",
           "sources": [
             "openrouter"
           ],
-          "tier": "flex"
-        },
+          "tier": "ultrafast"
+        }
+      ],
+      "prices_best": [
         {
           "cached": 0.1,
           "context": 1050000,
           "context_display": "1.05M",
           "input": 2.0,
           "output": 10.0,
-          "provider": "Azure",
+          "provider": "OpenAI",
           "quantization": "unknown",
           "sources": [
             "litellm",
@@ -4507,6 +4593,19 @@
             "openrouter"
           ],
           "tier": "us-east-1"
+        },
+        {
+          "cached": 0.11,
+          "context": 1050000,
+          "context_display": "1.05M",
+          "input": 2.2,
+          "output": 11.0,
+          "provider": "Azure",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "eu"
         }
       ],
       "provider_total": 3,
@@ -4543,19 +4642,6 @@
           "context_display": "1.05M",
           "input": 2.0,
           "output": 10.0,
-          "provider": "Azure",
-          "quantization": "unknown",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": null
-        },
-        {
-          "cached": 0.1,
-          "context": 1050000,
-          "context_display": "1.05M",
-          "input": 2.0,
-          "output": 10.0,
           "provider": "OpenAI",
           "quantization": "unknown",
           "sources": [
@@ -4601,6 +4687,19 @@
             "openrouter"
           ],
           "tier": "fast"
+        },
+        {
+          "cached": 0.6,
+          "context": 1050000,
+          "context_display": "1.05M",
+          "input": 12.0,
+          "output": 60.0,
+          "provider": "OpenAI",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "ultrafast"
         }
       ],
       "prices_best": [
@@ -4618,17 +4717,17 @@
           "tier": "flex"
         },
         {
-          "cached": 0.1,
+          "cached": 0.11,
           "context": 1050000,
           "context_display": "1.05M",
-          "input": 2.0,
-          "output": 10.0,
+          "input": 2.2,
+          "output": 11.0,
           "provider": "Azure",
           "quantization": "unknown",
           "sources": [
             "openrouter"
           ],
-          "tier": null
+          "tier": "eu"
         }
       ],
       "provider_total": 2,
@@ -5863,6 +5962,19 @@
             "openrouter"
           ],
           "tier": null
+        },
+        {
+          "cached": 0.0069,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.0345,
+          "output": 0.1495,
+          "provider": "Alibaba",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "us-east-1"
         }
       ],
       "prices_best": [
@@ -5920,9 +6032,22 @@
           "tier": null
         },
         {
-          "cached": 0.3,
-          "input": 1.5,
-          "output": 4.5,
+          "cached": 0.4,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 2.0,
+          "output": 6.0,
+          "provider": "Alibaba",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "us-east-1"
+        },
+        {
+          "cached": 0.5,
+          "input": 2.5,
+          "output": 7.5,
           "provider": "Together",
           "sources": [
             "litellm"
@@ -5966,9 +6091,9 @@
           "tier": null
         },
         {
-          "cached": 0.3,
-          "input": 1.5,
-          "output": 4.5,
+          "cached": 0.5,
+          "input": 2.5,
+          "output": 7.5,
           "provider": "Together",
           "sources": [
             "litellm"
@@ -6012,6 +6137,19 @@
           "sources": [
             "openrouter"
           ],
+          "tier": "us-east-1"
+        },
+        {
+          "cached": 0.064,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.32,
+          "output": 1.28,
+          "provider": "Alibaba",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
           "tier": null
         },
         {
@@ -6036,7 +6174,7 @@
           "sources": [
             "openrouter"
           ],
-          "tier": null
+          "tier": "us-east-1"
         },
         {
           "input": 0.32,
@@ -6330,13 +6468,13 @@
           "tier": "fp8"
         }
       ],
-      "provider_total": 18,
+      "provider_total": 22,
       "specs": [
         {
           "context": 1000000,
           "context_display": "1M",
-          "max_output": 131072,
-          "max_output_display": "131K",
+          "max_output": 235929,
+          "max_output_display": "236K",
           "source": "openrouter",
           "tools": true,
           "url": "https://openrouter.ai/qwen/qwen3.8-27b"
@@ -6346,13 +6484,17 @@
     "qwen-qwen3-8-flash": {
       "prices": [
         {
-          "input": 0.09,
-          "output": 0.282,
-          "provider": "Together",
+          "cached": 0.016,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 0.15,
+          "output": 0.47,
+          "provider": "Alibaba",
+          "quantization": "unknown",
           "sources": [
-            "litellm"
+            "openrouter"
           ],
-          "tier": null
+          "tier": "us-east-1"
         },
         {
           "cached": 0.016,
@@ -6365,21 +6507,21 @@
           "sources": [
             "litellm",
             "openrouter"
+          ],
+          "tier": null
+        },
+        {
+          "input": 0.15,
+          "output": 0.47,
+          "provider": "Together",
+          "sources": [
+            "litellm"
           ],
           "tier": null
         }
       ],
       "prices_best": [
         {
-          "input": 0.09,
-          "output": 0.282,
-          "provider": "Together",
-          "sources": [
-            "litellm"
-          ],
-          "tier": null
-        },
-        {
           "cached": 0.016,
           "context": 1000000,
           "context_display": "1M",
@@ -6388,8 +6530,16 @@
           "provider": "Alibaba",
           "quantization": "unknown",
           "sources": [
-            "litellm",
             "openrouter"
+          ],
+          "tier": "us-east-1"
+        },
+        {
+          "input": 0.15,
+          "output": 0.47,
+          "provider": "Together",
+          "sources": [
+            "litellm"
           ],
           "tier": null
         }
@@ -6501,11 +6651,11 @@
       "epoch": {
         "access": "Closed weights",
         "as_of": "2026-09-01",
-        "ci_high": 157.33,
-        "ci_low": 153.24,
+        "ci_high": 157.19,
+        "ci_low": 153.29,
         "country": "China",
         "display": "Qwen3.8 Max (0902)",
-        "eci": 155.17,
+        "eci": 155.05,
         "organization": "Alibaba",
         "page": "https://epoch.ai/models/qwen3-8-max-0902"
       },
@@ -6522,6 +6672,19 @@
             "litellm"
           ],
           "tier": null
+        },
+        {
+          "cached": 0.25,
+          "context": 1000000,
+          "context_display": "1M",
+          "input": 2.0,
+          "output": 6.0,
+          "provider": "Alibaba",
+          "quantization": "unknown",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "us-east-1"
         },
         {
           "cached": 0.25,
@@ -6574,10 +6737,9 @@
           "provider": "Alibaba",
           "quantization": "unknown",
           "sources": [
-            "litellm",
             "openrouter"
           ],
-          "tier": null
+          "tier": "us-east-1"
         },
         {
           "cached": 0.25,
@@ -6634,6 +6796,16 @@
     "z-ai-glm-4-7": {
       "prices": [
         {
+          "cached": 0.01,
+          "input": 0.06,
+          "output": 0.4,
+          "provider": "DeepInfra",
+          "sources": [
+            "litellm"
+          ],
+          "tier": null
+        },
+        {
           "input": 0.07,
           "output": 0.4,
           "provider": "Amazon Bedrock",
@@ -6641,35 +6813,6 @@
             "litellm"
           ],
           "tier": null
-        },
-        {
-          "cached": 0.08,
-          "context": 202752,
-          "context_display": "203K",
-          "input": 0.4,
-          "output": 1.75,
-          "provider": "DeepInfra",
-          "quantization": "fp4",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "fp4"
-        },
-        {
-          "cached": 0.0801,
-          "context": 198000,
-          "context_display": "198K",
-          "discount": 0.272,
-          "input": 0.4004,
-          "list_input": 0.55,
-          "list_output": 2.65,
-          "output": 1.9292,
-          "provider": "Venice",
-          "quantization": "fp4",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "fp4"
         },
         {
           "cached": 0.099,
@@ -6734,6 +6877,16 @@
       ],
       "prices_best": [
         {
+          "cached": 0.01,
+          "input": 0.06,
+          "output": 0.4,
+          "provider": "DeepInfra",
+          "sources": [
+            "litellm"
+          ],
+          "tier": null
+        },
+        {
           "input": 0.07,
           "output": 0.4,
           "provider": "Amazon Bedrock",
@@ -6741,35 +6894,6 @@
             "litellm"
           ],
           "tier": null
-        },
-        {
-          "cached": 0.08,
-          "context": 202752,
-          "context_display": "203K",
-          "input": 0.4,
-          "output": 1.75,
-          "provider": "DeepInfra",
-          "quantization": "fp4",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "fp4"
-        },
-        {
-          "cached": 0.0801,
-          "context": 198000,
-          "context_display": "198K",
-          "discount": 0.272,
-          "input": 0.4004,
-          "list_input": 0.55,
-          "list_output": 2.65,
-          "output": 1.9292,
-          "provider": "Venice",
-          "quantization": "fp4",
-          "sources": [
-            "openrouter"
-          ],
-          "tier": "fp4"
         },
         {
           "cached": 0.099,
@@ -6832,7 +6956,7 @@
           "tier": null
         }
       ],
-      "provider_total": 12,
+      "provider_total": 10,
       "specs": [
         {
           "context": 204800,
@@ -7249,13 +7373,16 @@
         },
         {
           "cached": 0.26,
+          "context": 202752,
+          "context_display": "203K",
           "input": 1.4,
           "output": 4.4,
           "provider": "Z.AI",
+          "quantization": "fp8",
           "sources": [
-            "litellm"
+            "openrouter"
           ],
-          "tier": null
+          "tier": "fp8"
         },
         {
           "cached": 0.26,
@@ -7333,13 +7460,16 @@
         },
         {
           "cached": 0.26,
+          "context": 202752,
+          "context_display": "203K",
           "input": 1.4,
           "output": 4.4,
           "provider": "Z.AI",
+          "quantization": "fp8",
           "sources": [
-            "litellm"
+            "openrouter"
           ],
-          "tier": null
+          "tier": "fp8"
         },
         {
           "cached": 0.26,
@@ -7378,13 +7508,13 @@
           "tier": null
         }
       ],
-      "provider_total": 17,
+      "provider_total": 18,
       "specs": [
         {
           "context": 204800,
           "context_display": "205K",
-          "max_output": 131072,
-          "max_output_display": "131K",
+          "max_output": 128000,
+          "max_output_display": "128K",
           "source": "openrouter",
           "tools": true,
           "url": "https://openrouter.ai/z-ai/glm-5.1"
@@ -7638,13 +7768,13 @@
           "tier": null
         }
       ],
-      "provider_total": 33,
+      "provider_total": 31,
       "specs": [
         {
           "context": 1048576,
           "context_display": "1.05M",
-          "max_output": 131072,
-          "max_output_display": "131K",
+          "max_output": 943718,
+          "max_output_display": "944K",
           "source": "openrouter",
           "tools": true,
           "url": "https://openrouter.ai/z-ai/glm-5.2"
@@ -7668,6 +7798,22 @@
             "openrouter"
           ],
           "tier": "fp4"
+        },
+        {
+          "cached": 0.0168,
+          "context": 1048576,
+          "context_display": "1.05M",
+          "discount": 0.44,
+          "input": 0.084,
+          "list_input": 0.15,
+          "list_output": 0.5,
+          "output": 0.28,
+          "provider": "Novita",
+          "quantization": "fp8",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "fp8"
         },
         {
           "cached": 0.03,
@@ -7777,6 +7923,22 @@
           "tier": "fp4"
         },
         {
+          "cached": 0.0168,
+          "context": 1048576,
+          "context_display": "1.05M",
+          "discount": 0.44,
+          "input": 0.084,
+          "list_input": 0.15,
+          "list_output": 0.5,
+          "output": 0.28,
+          "provider": "Novita",
+          "quantization": "fp8",
+          "sources": [
+            "openrouter"
+          ],
+          "tier": "fp8"
+        },
+        {
           "cached": 0.03,
           "context": 1048576,
           "context_display": "1.05M",
@@ -7853,7 +8015,7 @@
           "tier": null
         }
       ],
-      "provider_total": 32,
+      "provider_total": 31,
       "specs": [
         {
           "context": 1048576,
