@@ -11,7 +11,7 @@ classes: wide
 
 This tool lives in the fast-moving AI tooling space, where the differentiator is usually workflow fit rather than raw capability.
 
-For context: the project lives at [aitoptools.com](https://aitoptools.com/tool/1000-gpt-prompts-for-creatives/).
+For context: the project lives at [https://smalldesigntools.com/gpt-prompts](https://smalldesigntools.com/gpt-prompts).
 
 ## 1000 GPT Prompts For Creatives at a glance
 
@@ -20,7 +20,7 @@ For context: the project lives at [aitoptools.com](https://aitoptools.com/tool/1
 | Category | Prompt Generator |
 | Pricing model | Not publicly documented |
 | Open source | Unknown |
-| Website | [aitoptools.com](https://aitoptools.com/tool/1000-gpt-prompts-for-creatives/) |
+| Website | [https://smalldesigntools.com/gpt-prompts](https://smalldesigntools.com/gpt-prompts) |
 
 ## Who is 1000 GPT Prompts For Creatives for?
 
@@ -30,7 +30,7 @@ For context: the project lives at [aitoptools.com](https://aitoptools.com/tool/1
 
 1000 GPT Prompts For Creatives is listed here as **Not publicly documented**. 
 
-No plan pricing could be verified from public pages at the time of writing — the [official site](https://aitoptools.com/tool/1000-gpt-prompts-for-creatives/) is the authoritative source. That alone is worth factoring in: opaque pricing makes budget comparisons harder.
+No plan pricing could be verified from public pages at the time of writing — the [official site](https://smalldesigntools.com/gpt-prompts) is the authoritative source. That alone is worth factoring in: opaque pricing makes budget comparisons harder.
 
 ### What this means for your budget
 
@@ -58,8 +58,8 @@ Other tools we track in the same category:
 
 **Is 1000 GPT Prompts For Creatives open source?** We could not verify a license from public data.
 
-**Where do I start?** At the [official site](https://aitoptools.com/tool/1000-gpt-prompts-for-creatives/).
+**Where do I start?** At the [official site](https://smalldesigntools.com/gpt-prompts).
 
 ## Verdict
 
-1000 GPT Prompts For Creatives in one paragraph: a prompt generator option published at [aitoptools.com](https://aitoptools.com/tool/1000-gpt-prompts-for-creatives/), listed as not publicly documented. 1000 GPT Prompts For Creatives is worth a pilot for teams evaluating AI tooling and looking for a pragmatic fit rather than a flagship name. Data in this review was collected on 2026-09-23 from public sources; verify current pricing and limits with the vendor before committing.
+1000 GPT Prompts For Creatives in one paragraph: a prompt generator option published at [https://smalldesigntools.com/gpt-prompts](https://smalldesigntools.com/gpt-prompts), listed as not publicly documented. 1000 GPT Prompts For Creatives is worth a pilot for teams evaluating AI tooling and looking for a pragmatic fit rather than a flagship name. Data in this review was collected on 2026-09-23 from public sources; verify current pricing and limits with the vendor before committing.
